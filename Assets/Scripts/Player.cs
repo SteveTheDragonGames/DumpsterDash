@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Diagnostics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -128,7 +128,15 @@ public class Player : MonoBehaviour
         if (dumpsterScript != null)
         {
             JunkItem foundJunk = dumpsterScript.GetRandomJunk();
-            UnityEngine.Debug.Log("You found: " + foundJunk.name + " - " + foundJunk.description + " (+" + foundJunk.scoreValue + " points");
+            UnityEngine.Debug.Log("You found: " + foundJunk.name + " - " + foundJunk.description + " (+" + foundJunk.scoreValue + " points)");
+            Vector3 spawnPos = currentDumpster.transform.position + new Vector3(0, 1f, 0);
+            GameObject currentJunk = Instantiate(foundJunk.junkItem, spawnPos, Quaternion.identity);
+            Rigidbody2D rb = currentJunk.GetComponent<Rigidbody2D>();
+            if(rb)
+            {
+                rb.AddForce(new Vector2(UnityEngine.Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);//lil' pop effect.
+
+            }
         }
         else
         {
