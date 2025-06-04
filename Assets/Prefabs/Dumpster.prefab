@@ -233,7 +233,7 @@ MonoBehaviour:
   - name: Melted Crayon
     scoreValue: 1
     description: Fusion of colors and regret.
-    junkItem: {fileID: 6890845034011962035, guid: 18e14a57628e5b94fabbbb47f9cf6393, type: 3}
+    junkItem: {fileID: 2640732447125674405, guid: 743dc32044ffce04c890a760d19868bb, type: 3}
   - name: Fast Food Receipt
     scoreValue: 0
     description: Ink is gone but shame remains.

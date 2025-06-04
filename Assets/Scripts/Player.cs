@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     private string SPRITZ_ANIMATION = "isSpritzing";
 
     private Transform currentDumpster = null;
+    [SerializeField] private SignAnimator signAnimator;
 
     // Start is called before the first frame update
     void Awake()
@@ -128,7 +129,7 @@ public class Player : MonoBehaviour
         if (dumpsterScript != null)
         {
             JunkItem foundJunk = dumpsterScript.GetRandomJunk();
-            UnityEngine.Debug.Log("You found: " + foundJunk.name + " - " + foundJunk.description + " (+" + foundJunk.scoreValue + " points)");
+            //UnityEngine.Debug.Log("You found: " + foundJunk.name + " - " + foundJunk.description + " (+" + foundJunk.scoreValue + " points)");
             Vector3 spawnPos = currentDumpster.transform.position + new Vector3(0, 1f, 0);
             GameObject currentJunk = Instantiate(foundJunk.junkItem, spawnPos, Quaternion.identity);
             Rigidbody2D rb = currentJunk.GetComponent<Rigidbody2D>();
@@ -137,6 +138,8 @@ public class Player : MonoBehaviour
                 rb.AddForce(new Vector2(UnityEngine.Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);//lil' pop effect.
 
             }
+
+            signAnimator.PopSign(foundJunk.name, foundJunk.description);
         }
         else
         {
@@ -147,6 +150,7 @@ public class Player : MonoBehaviour
         SetMovement(true);
 
     }
+
 
     void PlayerSpritz()
     {
