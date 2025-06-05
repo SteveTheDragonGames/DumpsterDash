@@ -12,13 +12,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
   - Ground
   - Junk
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -50,6 +50,9 @@ TagManager:
     locked: 0
   - name: Dumpster
     uniqueID: 3782118051
+    locked: 0
+  - name: Junk
+    uniqueID: 729875721
     locked: 0
   - name: Enemy
     uniqueID: 637122345

@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
+using Random = UnityEngine.Random;
+using Debug = UnityEngine.Debug;
 
 public class Player : MonoBehaviour
 {
@@ -115,6 +118,14 @@ public class Player : MonoBehaviour
 
     void PlayerSearch()
     {
+        Dumpster dumpsterScript = currentDumpster.GetComponent<Dumpster>();
+        if (dumpsterScript == null)
+        {
+            UnityEngine.Debug.LogWarning("No Dumpster script found on the current dumpster!");
+        }
+
+        dumpsterScript.OpenLid();
+
         if (isSearching) return;
         if(isNearDumpster)
         {
@@ -134,7 +145,7 @@ public class Player : MonoBehaviour
         Dumpster dumpsterScript = currentDumpster.GetComponent<Dumpster>();
         if (dumpsterScript == null)
         {
-            Debug.LogWarning("No Dumpster script found on the current dumpster!");
+            UnityEngine.Debug.LogWarning("No Dumpster script found on the current dumpster!");
             yield break;
         }
 
@@ -158,33 +169,34 @@ public class Player : MonoBehaviour
                 }
 
             }
-            else
+        }
+        else
+        {
+            isJunk = false;
+            if (dumpsterScript != null)
             {
-                isJunk = false;                
-                if (dumpsterScript != null)
-                {
-                    racoonPrefab = dumpsterScript.racoon;
-                }
-
-                Vector3 spawnPos = currentDumpster.transform.position + new Vector3(0, 1f, 0);
-                racoonHellSpawn = Instantiate(racoonPrefab, spawnPos, Quaternion.identity);
-                Rigidbody2D rb = racoonHellSpawn.GetComponent<Rigidbody2D>();
-                if (rb)
-                {
-                    rb.AddForce(new Vector2(UnityEngine.Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);//lil' pop effect
-                }
+                racoonPrefab = dumpsterScript.racoon;
             }
+            float spawnX = (Random.value < 0.5f) ? -2f : 2f;
+            Vector3 spawnPos = currentDumpster.transform.position + new Vector3(spawnX, 1f, 0);
+            racoonHellSpawn = Instantiate(racoonPrefab, spawnPos, Quaternion.identity);
+            Rigidbody2D rb = racoonHellSpawn.GetComponent<Rigidbody2D>();
+            if (rb)
+            {
+                rb.velocity = Vector2.zero; // Clean slate!
+                rb.AddForce(new Vector2(Random.Range(-1.5f, 1.5f), 10f), ForceMode2D.Impulse);
+            }
+        }
 
 
             if (isJunk)
             {
                 signAnimator.PopSign(foundJunk.name, foundJunk.description);
             }
-            
-        }
        
         anim.SetBool(SEARCH_ANIMATION, false);
         isSearching = false;
+        dumpsterScript.CloseLid();
         SetMovement(true);
 
     }

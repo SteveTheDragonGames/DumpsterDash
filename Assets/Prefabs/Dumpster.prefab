@@ -64,8 +64,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 644526674976000385}
-  - {fileID: 2703947081677945296}
+  - {fileID: 899496692069501418}
+  - {fileID: 225235413154251173}
   - {fileID: 890855121023636784}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -263,7 +263,9 @@ MonoBehaviour:
     scoreValue: 1
     description: Why is it crunchy?
     junkItem: {fileID: 7843900204833423923, guid: 9b832b3fbe6660749940245ca2d3e4a2, type: 3}
---- !u!1 &6825740840677334413
+  Lid_Closed: {fileID: 6655058519728580112}
+  Lid_Open: {fileID: 8594022386999618999}
+--- !u!1 &6655058519728580112
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,22 +273,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2703947081677945296}
-  - component: {fileID: 9173651870598463252}
+  - component: {fileID: 225235413154251173}
+  - component: {fileID: 4007512193038418078}
   m_Layer: 0
-  m_Name: dumpster_Top_Open
+  m_Name: dumpster_Top_Closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2703947081677945296
+  m_IsActive: 1
+--- !u!4 &225235413154251173
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6825740840677334413}
+  m_GameObject: {fileID: 6655058519728580112}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
@@ -295,13 +297,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8063022591904266940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9173651870598463252
+--- !u!212 &4007512193038418078
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6825740840677334413}
+  m_GameObject: {fileID: 6655058519728580112}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -333,10 +335,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 637122345
-  m_SortingLayer: 3
+  m_SortingLayerID: -512849245
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b92de4730454f9d42b300d145e6d45b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87758bf43176376438a0ed3e9f94e905, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -347,7 +349,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7904589261505335217
+--- !u!1 &8594022386999618999
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,22 +357,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 644526674976000385}
-  - component: {fileID: 7930785739248356587}
+  - component: {fileID: 899496692069501418}
+  - component: {fileID: 6247237289189134126}
   m_Layer: 0
-  m_Name: dumpster_Top
+  m_Name: dumpster_Top_Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &644526674976000385
+--- !u!4 &899496692069501418
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7904589261505335217}
+  m_GameObject: {fileID: 8594022386999618999}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
@@ -379,13 +381,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8063022591904266940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7930785739248356587
+--- !u!212 &6247237289189134126
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7904589261505335217}
+  m_GameObject: {fileID: 8594022386999618999}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -418,9 +420,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 637122345
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 87758bf43176376438a0ed3e9f94e905, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b92de4730454f9d42b300d145e6d45b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
