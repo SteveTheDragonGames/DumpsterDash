@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500df5ace997d5e4a868f7a1fd059cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  racoon: {fileID: 3472067296789623137, guid: 0011dda095ee1cf41a2c11098df5b8db, type: 3}
   level1Junk:
   - name: JuiceBox
     scoreValue: 1

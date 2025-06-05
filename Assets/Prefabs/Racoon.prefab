@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 6914526387847420411}
   - component: {fileID: 856590202412468704}
   - component: {fileID: 6469681296610008095}
+  - component: {fileID: -3069789097317935877}
+  - component: {fileID: 8801394572761901501}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: Racoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,9 +149,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.00824821, y: -0.30518055}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.55, y: 0, z: 0.29999998, w: 0.64}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6666667, y: 2.6666667}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -158,3 +160,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.52117324, y: 1.2964959}
   m_EdgeRadius: 0
+--- !u!114 &-3069789097317935877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472067296789623137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac99b7cb02082b049b59aca7ed792568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &8801394572761901501
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472067296789623137}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b3d1e9be4f8d2742b4f832f1989bd0b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

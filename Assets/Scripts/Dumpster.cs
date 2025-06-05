@@ -9,11 +9,13 @@ public class JunkItem
     public int scoreValue;
     public string description;
     public GameObject junkItem;
+
+
 }// Class JunkItem
 
 public class Dumpster : MonoBehaviour
 {
-
+    public GameObject racoon;
     public List<JunkItem> level1Junk;
 
 

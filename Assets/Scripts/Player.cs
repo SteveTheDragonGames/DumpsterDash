@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private bool isHowling = false;
     private bool isSearching = false;
     private bool isSpritzing = false;
+    private bool isJunk = false;
     [SerializeField] private float ITSHOWLINTIME = .5f;
     private bool isNearDumpster = false;
     private bool canMove = true;
@@ -33,6 +34,10 @@ public class Player : MonoBehaviour
 
     private Transform currentDumpster = null;
     [SerializeField] private SignAnimator signAnimator;
+
+    private JunkItem foundJunk;
+    private GameObject racoonHellSpawn = null;
+    private GameObject racoonPrefab = null;
 
     // Start is called before the first frame update
     void Awake()
@@ -125,31 +130,65 @@ public class Player : MonoBehaviour
     IEnumerator FinishSearching(float delay)
     {
         yield return new WaitForSeconds(delay);
+
         Dumpster dumpsterScript = currentDumpster.GetComponent<Dumpster>();
-        if (dumpsterScript != null)
+        if (dumpsterScript == null)
         {
-            JunkItem foundJunk = dumpsterScript.GetRandomJunk();
-            //UnityEngine.Debug.Log("You found: " + foundJunk.name + " - " + foundJunk.description + " (+" + foundJunk.scoreValue + " points)");
-            Vector3 spawnPos = currentDumpster.transform.position + new Vector3(0, 1f, 0);
-            GameObject currentJunk = Instantiate(foundJunk.junkItem, spawnPos, Quaternion.identity);
-            Rigidbody2D rb = currentJunk.GetComponent<Rigidbody2D>();
-            if(rb)
+            Debug.LogWarning("No Dumpster script found on the current dumpster!");
+            yield break;
+        }
+
+
+        float spawnChance = UnityEngine.Random.value;
+
+        if (spawnChance < 0.8f)
+        {
+            isJunk = true;
+            if (dumpsterScript != null)
+            // pull out junk
             {
-                rb.AddForce(new Vector2(UnityEngine.Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);//lil' pop effect.
+                foundJunk = dumpsterScript.GetRandomJunk();
+                //UnityEngine.Debug.Log("You found: " + foundJunk.name + " - " + foundJunk.description + " (+" + foundJunk.scoreValue + " points)");
+                Vector3 spawnPos = currentDumpster.transform.position + new Vector3(0, 1f, 0);
+                GameObject currentJunk = Instantiate(foundJunk.junkItem, spawnPos, Quaternion.identity);
+                Rigidbody2D rb = currentJunk.GetComponent<Rigidbody2D>();
+                if (rb)
+                {
+                    rb.AddForce(new Vector2(UnityEngine.Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);//lil' pop effect
+                }
 
             }
+            else
+            {
+                isJunk = false;                
+                if (dumpsterScript != null)
+                {
+                    racoonPrefab = dumpsterScript.racoon;
+                }
 
-            signAnimator.PopSign(foundJunk.name, foundJunk.description);
+                Vector3 spawnPos = currentDumpster.transform.position + new Vector3(0, 1f, 0);
+                racoonHellSpawn = Instantiate(racoonPrefab, spawnPos, Quaternion.identity);
+                Rigidbody2D rb = racoonHellSpawn.GetComponent<Rigidbody2D>();
+                if (rb)
+                {
+                    rb.AddForce(new Vector2(UnityEngine.Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);//lil' pop effect
+                }
+            }
+
+
+            if (isJunk)
+            {
+                signAnimator.PopSign(foundJunk.name, foundJunk.description);
+            }
+            
         }
-        else
-        {
-            UnityEngine.Debug.LogWarning("No Dumpster script found on the current dumpster");
-        }
+       
         anim.SetBool(SEARCH_ANIMATION, false);
         isSearching = false;
         SetMovement(true);
 
     }
+
 
 
     void PlayerSpritz()
