@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private float groundCheckRadius = 0.2f;
     private bool isGrounded;
+
+
     private bool isHowling = false;
     private bool isSearching = false;
     private bool isSpritzing = false;
@@ -41,6 +43,8 @@ public class Player : MonoBehaviour
     private JunkItem foundJunk;
     private GameObject racoonHellSpawn = null;
     private GameObject racoonPrefab = null;
+
+    private Coroutine currentSearchRoutine;
 
     // Start is called before the first frame update
     void Awake()
@@ -95,8 +99,10 @@ public class Player : MonoBehaviour
 
 
     void PlayerJump()
-    {       
+    {
+        if (currentSearchRoutine != null) CancelSearch();
         myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+
     }
 
     void PlayerHowl()
@@ -126,16 +132,29 @@ public class Player : MonoBehaviour
 
         dumpsterScript.OpenLid();
 
-        if (isSearching) return;
-        if(isNearDumpster)
-        {
+        if (isSearching || !isNearDumpster) return;
+
+
             SnapToDumpster();
             anim.SetBool(SEARCH_ANIMATION, true);
             isSearching = true;
             SetMovement(false);
-            StartCoroutine(FinishSearching(1.5f));
+
+            currentSearchRoutine = StartCoroutine(FinishSearching(1.5f));
+
+    }
+
+    public void CancelSearch()
+    {
+        if (currentSearchRoutine != null)
+        {
+            StopCoroutine(currentSearchRoutine);
+            currentSearchRoutine = null;
         }
 
+        anim.SetBool(SEARCH_ANIMATION, false);
+        isSearching = false;
+        SetMovement(true);
     }
 
     IEnumerator FinishSearching(float delay)

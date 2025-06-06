@@ -44,6 +44,11 @@ public class Dumpster : MonoBehaviour
         Lid_Closed.SetActive(true);
     }
 
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        CloseLid();
+    }
+
 
 
 }//Class Dumpster
