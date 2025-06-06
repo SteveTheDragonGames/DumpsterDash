@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6091581529161173553}
   - component: {fileID: 8942379926258286106}
   - component: {fileID: 4367540991912600413}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Rat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 637122345
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aeaaf1661ffa86049a628567ffe91ae2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
