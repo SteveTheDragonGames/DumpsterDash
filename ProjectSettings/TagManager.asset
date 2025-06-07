@@ -8,6 +8,7 @@ TagManager:
   - Dumpster
   - SpritzBottle
   - Junk
+  - Boundary
   layers:
   - Default
   - TransparentFX
