@@ -19,23 +19,25 @@ public class SignAnimator : MonoBehaviour
     private Vector3 finalOffset = new Vector3(-4f, 1f, 0f);
     private Vector3 startOffset = new Vector3(-4f, -7f, 0f);
 
+    void Awake()
+    {
+        if (playerTransform == null)
+            Debug.LogWarning("SignAnimator: playerTransform not assigned!");
+    }
+
     public void PopSign(string junkName, string junkDescription)
     {
-        if (currentState == SignState.Visible || currentState == SignState.Rising)
-        {
-            if (currentRoutine != null) StopCoroutine(currentRoutine);
-            currentRoutine = StartCoroutine(SwapSign(junkName, junkDescription));
-        }
-        else
-        {
-            if (currentRoutine != null) StopCoroutine(currentRoutine);
-            currentRoutine = StartCoroutine(ShowSign(junkName, junkDescription));
-        }
+        if (currentRoutine != null) StopCoroutine(currentRoutine);
+
+        currentRoutine = (currentState == SignState.Visible || currentState == SignState.Rising)
+            ? StartCoroutine(SwapSign(junkName, junkDescription))
+            : StartCoroutine(ShowSign(junkName, junkDescription));
     }
+
 
     IEnumerator ShowSign(string junkName, string junkDescription)
     {
-        currentState = SignState.Rising;
+        SetState(SignState.Rising);
 
         SetTextAlpha(junkNameText, 0f);
         SetTextAlpha(junkDescriptionText, 0f);
@@ -53,13 +55,13 @@ public class SignAnimator : MonoBehaviour
         yield return AnimateScale(Vector3.one * 1.1f, Vector3.one, 0.1f);
         yield return AnimateFade(0f, 1f, 0.3f);
 
-        currentState = SignState.Visible;
+        SetState(SignState.Visible);
         lastPopTime = Time.time;
 
         while (Time.time - lastPopTime < visibleDuration)
             yield return null;
 
-        currentRoutine = StartCoroutine(HideSign());
+        StartHidingSign();
     }
 
     IEnumerator SwapSign(string newName, string newDescription)
@@ -84,25 +86,38 @@ public class SignAnimator : MonoBehaviour
         yield return AnimateScale(Vector3.one * 1.1f, Vector3.one, 0.1f);
         yield return AnimateFade(0f, 1f, 0.3f);
 
-        currentState = SignState.Visible;
+        SetState(SignState.Visible);
         lastPopTime = Time.time;
 
         while (Time.time - lastPopTime < visibleDuration)
             yield return null;
 
+        StartHidingSign();
+    }
+    void StartHidingSign()
+    {
+        if (currentRoutine != null) StopCoroutine(currentRoutine);
         currentRoutine = StartCoroutine(HideSign());
     }
-
+   
     IEnumerator HideSign()
     {
-        currentState = SignState.Dropping;
+        if (currentState == SignState.Hidden) yield break;
+
+        SetState(SignState.Dropping);
 
         yield return AnimateFade(1f, 0f, 0.3f);
 
         Vector3 end = playerTransform.position + startOffset;
         yield return AnimateMove(signTransform.position, end, 0.3f);
 
-        currentState = SignState.Hidden;
+        // 🔒 Safety final state lock-in
+        signTransform.position = end;
+        signTransform.localScale = Vector3.one;
+        SetTextAlpha(junkNameText, 0f);
+        SetTextAlpha(junkDescriptionText, 0f);
+
+        SetState(SignState.Hidden);
         currentRoutine = null;
     }
 
@@ -148,5 +163,23 @@ public class SignAnimator : MonoBehaviour
         Color c = text.color;
         c.a = alpha;
         text.color = c;
+    }
+
+    public void ForceHide()
+    {
+        if (currentRoutine != null) StopCoroutine(currentRoutine);
+
+        signTransform.position = playerTransform.position + startOffset;
+        signTransform.localScale = Vector3.one;
+        SetTextAlpha(junkNameText, 0f);
+        SetTextAlpha(junkDescriptionText, 0f);
+        SetState(SignState.Hidden);
+        currentRoutine = null;
+    }
+
+    void SetState(SignState newState)
+    {
+        currentState = newState;
+        // future debug logs, hooks, transitions go here
     }
 }

@@ -28,6 +28,7 @@ public class RatElectrocution : MonoBehaviour
         StartCoroutine(ElectrocuteAndVanish());
     }
 
+    public float TorqueRange = 15f;
     private IEnumerator ElectrocuteAndVanish()
     {
         // Release Z lock so the rat spins
@@ -36,7 +37,7 @@ public class RatElectrocution : MonoBehaviour
 
         // Apply randomized yeet force and spin
         rb.AddForce(new Vector2(Random.Range(-1f, 1f), 10f), ForceMode2D.Impulse);
-        rb.AddTorque(Random.Range(-50f, 50f), ForceMode2D.Impulse);
+        rb.AddTorque(Random.Range(-TorqueRange, TorqueRange), ForceMode2D.Impulse);
 
         // Trigger the baked-in zap animation
         if (anim != null)

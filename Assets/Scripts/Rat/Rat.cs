@@ -7,12 +7,23 @@ public class Rat : MonoBehaviour
 {
 
     public float speed = 5f;
-
+    private BoxCollider2D col2D;
     SpriteRenderer sr = null;
 
     void Awake()
     {
         sr = gameObject.GetComponent<SpriteRenderer>();
+        col2D = gameObject.GetComponent<BoxCollider2D>();
+        col2D.enabled = false;
+        Invoke("EnableCollider",.5f);
+    }
+
+    void EnableCollider()
+    {
+        if (col2D != null)
+        {
+            col2D.enabled = true;
+        }
     }
 
 
