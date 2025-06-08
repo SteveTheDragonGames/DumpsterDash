@@ -20,10 +20,12 @@ public class Player : MonoBehaviour
     private bool isHowling = false;
     private bool isSearching = false;
     private bool isSpritzing = false;
+    private int spritzes = 0;
     private bool isJunk = false;
     [SerializeField] private float ITSHOWLINTIME = .5f;
     private bool isNearDumpster = false;
     private bool canMove = true;
+    private bool isFacingRight = true;
 
     private float movementX;
 
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
     private string HOWL_ANIMATION = "Howl";
     private string SEARCH_ANIMATION = "isSearching";
     private string SPRITZ_ANIMATION = "isSpritzing";
+    private string KICK_ANIMATION = "doKick";
 
     private Transform currentDumpster = null;
     [SerializeField] private SignAnimator signAnimator;
@@ -45,6 +48,9 @@ public class Player : MonoBehaviour
     private GameObject racoonPrefab = null;
 
     private Coroutine currentSearchRoutine;
+
+    public GameObject kickHitbox;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -85,10 +91,27 @@ public class Player : MonoBehaviour
 
     void FlipSprite()
     {
-        if (movementX > 0) sr.flipX = false;
-        else if(movementX<0) sr.flipX = true;
+        if (movementX > 0)
+        {
+            sr.flipX = false;
+            isFacingRight = true;
+        }
+      
+        else if (movementX < 0)
+        {
+            sr.flipX = true;
+            isFacingRight = false;
+        }
 
+        FlipKickHitBox();
     }
+
+    void FlipKickHitBox()
+    {
+        kickHitbox.transform.localScale = isFacingRight ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
+    }
+
+
     void AnimateCoyote()
     {
         //if we're walking, walk_animation is true, otherwise not walking.
@@ -224,9 +247,20 @@ public class Player : MonoBehaviour
 
     void PlayerSpritz()
     {
-        isSpritzing = true;
-        anim.SetBool(SPRITZ_ANIMATION, true);
-        StartCoroutine(FinishSpritzing());
+        if (spritzes > 0)
+        {
+            isSpritzing = true;
+            anim.SetBool(SPRITZ_ANIMATION, true);
+            StartCoroutine(FinishSpritzing());
+        }
+        else
+            Kick();
+
+    }
+
+    void Kick()
+    {
+        anim.SetTrigger(KICK_ANIMATION);
     }
 
     IEnumerator FinishSpritzing()
@@ -273,6 +307,9 @@ public class Player : MonoBehaviour
         }    
     }
 
- 
+    public void ActivateKickHitbox()
+    {
+        kickHitbox.SetActive(true);
+    }
 
 }
