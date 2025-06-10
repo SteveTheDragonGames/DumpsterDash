@@ -31,8 +31,13 @@ public class PlayerStates : MonoBehaviour
     currentState == PlayerState.Jumping ||
     currentState == PlayerState.Falling;
 
+    public bool CanAttack() =>
+    currentState == PlayerState.Idle ||
+    currentState == PlayerState.Moving ||
+    currentState == PlayerState.Jumping;
+
+
     public bool CanJump() => (currentState == PlayerState.Idle || currentState == PlayerState.Moving);
     public bool CanSearch() => (currentState == PlayerState.Idle || currentState == PlayerState.Moving);
-    public bool CanAttack() => (currentState == PlayerState.Moving || currentState == PlayerState.Jumping);
     public bool IsBusy() => currentState == PlayerState.Searching || currentState == PlayerState.Howling || currentState == PlayerState.Stunned;
 }

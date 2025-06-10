@@ -7,15 +7,26 @@ public class PlayerActions : MonoBehaviour
     public int spritzes = 0;
     public float spritzDuration = 1f;
     public float howlDuration = 0.5f;
-    public GameObject kickHitbox;
+    public GameObject kickHitBox; // <-- You were missing this!
 
     private PlayerStates states;
     private Animator anim;
+    private KickHitBox kickBoxScript;
 
     void Awake()
     {
         states = GetComponent<PlayerStates>();
         anim = GetComponent<Animator>();
+
+        // Fix: Use the actual GameObject reference
+        if (kickHitBox != null)
+        {
+            kickBoxScript = kickHitBox.GetComponent<KickHitBox>();
+        }
+        else
+        {
+            Debug.LogWarning("Kick HitBox not assigned!");
+        }
     }
 
     public void SpritzOrKick()
@@ -55,16 +66,18 @@ public class PlayerActions : MonoBehaviour
 
     public void Kick()
     {
+        if (kickHitBox == null || kickBoxScript == null) return;
+
+        kickHitBox.SetActive(true);
         states.SetState(PlayerState.Kicking);
         anim.SetTrigger("doKick");
-        StartCoroutine(DisableHitbox());
+
+        StartCoroutine(ResetStateAfterKick(kickBoxScript.activeTime));
     }
 
-    private IEnumerator DisableHitbox()
+    private IEnumerator ResetStateAfterKick(float duration)
     {
-        kickHitbox.SetActive(true);
-        yield return new WaitForEndOfFrame();
-        kickHitbox.SetActive(false);
+        yield return new WaitForSeconds(duration);
         states.SetState(PlayerState.Idle);
     }
 }

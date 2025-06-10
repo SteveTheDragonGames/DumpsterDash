@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private float groundCheckRadius = 0.2f;
     private bool isGrounded;
     private SpriteRenderer sr;
+    
 
     [SerializeField] private float fallMultiplier = 2.5f;
+    public GameObject kickHitBox;
 
     void Awake()
     {
@@ -58,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(dir * moveForce, rb.velocity.y);
         // Flip sprite
         sr.flipX = dir < 0;
+        //Flip KickHitBox
+        kickHitBox.transform.localScale = new Vector3(dir, 1, 1);
+
     }
 
     public void Jump()

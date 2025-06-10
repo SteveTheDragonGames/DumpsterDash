@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4367540991912600413}
   - component: {fileID: 6515269872437656357}
   - component: {fileID: -705698802353805708}
+  - component: {fileID: -1502642327225467851}
   - component: {fileID: 1188070301947171204}
   - component: {fileID: 3680837601034783460}
   m_Layer: 10
@@ -209,6 +210,18 @@ MonoBehaviour:
   smokePuffPrefab: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
   anim: {fileID: 1188070301947171204}
   TorqueRange: 15
+--- !u!114 &-1502642327225467851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834379808135999443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798601c12754f344181e47444f12d0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1188070301947171204
 Animator:
   serializedVersion: 5

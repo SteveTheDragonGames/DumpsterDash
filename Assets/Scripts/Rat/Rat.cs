@@ -1,21 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class Rat : MonoBehaviour
 {
-
+    public GameObject smokePuffPrefab;
     public float speed = 5f;
     private BoxCollider2D col2D;
-    SpriteRenderer sr = null;
+    private SpriteRenderer sr;
+    private Animator anim;
+    private Rigidbody2D rb;
+
+    public float activeTime = 0.2f; // Adjust timing here
+    public float TorqueRange = 8f;
+    private string BOOT_ANIMATION = "Boot";
+    public float kickForce = 4f;
+    public float delay = 1.4f;
 
     void Awake()
     {
-        sr = gameObject.GetComponent<SpriteRenderer>();
-        col2D = gameObject.GetComponent<BoxCollider2D>();
+        sr = GetComponent<SpriteRenderer>();
+        col2D = GetComponent<BoxCollider2D>();
         col2D.enabled = false;
-        Invoke("EnableCollider",.5f);
+        Invoke(nameof(EnableCollider), 0.5f);
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void EnableCollider()
@@ -25,7 +34,6 @@ public class Rat : MonoBehaviour
             col2D.enabled = true;
         }
     }
-
 
     void Update()
     {
@@ -43,13 +51,38 @@ public class Rat : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Boundary"))
+        if (collision.CompareTag("Boundary"))
         {
             RatElectrocution zap = GetComponent<RatElectrocution>();
             if (zap != null)
                 zap.TriggerZappyDeath();
-            else UnityEngine.Debug.LogWarning("RatElectrocution Component missing!");
+            else
+                Debug.LogWarning("RatElectrocution Component missing!");
         }
 
+        if (collision.CompareTag("PlayerKicker"))
+        {
+            anim.SetTrigger(BOOT_ANIMATION);
+            rb.constraints = RigidbodyConstraints2D.None;
+
+            float direction = collision.transform.localScale.x;
+            Vector2 force = new Vector2(direction * kickForce, 8f);
+            rb.AddForce(force, ForceMode2D.Impulse);
+            rb.AddTorque(Random.Range(-TorqueRange, TorqueRange), ForceMode2D.Impulse);
+
+            StartCoroutine(KillAfterDelay());
+        }
+    }
+
+    IEnumerator KillAfterDelay()
+    {
+        yield return new WaitForSeconds(delay);
+        if (smokePuffPrefab)
+        {
+            Instantiate(smokePuffPrefab, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
+        Debug.Log("Rat Destroyed!");
     }
 }
