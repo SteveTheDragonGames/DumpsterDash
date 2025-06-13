@@ -16,6 +16,11 @@ public class Dumpster : MonoBehaviour
 {
     public GameObject racoon;
     public List<JunkItem> level1Junk;
+    public List<JunkItem> Level2Junk;
+    public List<JunkItem> Level3Junk;
+    public List<JunkItem> Level4Junk;
+    public List<JunkItem> Level5Junk;
+
 
     public GameObject Lid_Closed;
     public GameObject Lid_Open;
