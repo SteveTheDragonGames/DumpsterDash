@@ -11,6 +11,7 @@ TagManager:
   - Boundary
   - Rat
   - PlayerKicker
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -9,8 +9,9 @@ public class PlayerSearch : MonoBehaviour
 
     private PlayerStates states;
     private bool isNearDumpster;
-    private Transform currentDumpster;
+    private Transform currentDumpsterLocation;
     private Coroutine searchRoutine;
+    private Dumpster currentDumpster;
 
     void Awake()
     {
@@ -22,7 +23,8 @@ public class PlayerSearch : MonoBehaviour
         if (col.CompareTag("Dumpster"))
         {
             isNearDumpster = true;
-            currentDumpster = col.transform;
+            currentDumpsterLocation = col.transform;
+            currentDumpster = currentDumpsterLocation.GetComponent<Dumpster>();
         }
     }
 
@@ -31,6 +33,7 @@ public class PlayerSearch : MonoBehaviour
         if (col.CompareTag("Dumpster"))
         {
             isNearDumpster = false;
+            currentDumpsterLocation = null;
             currentDumpster = null;
         }
     }
@@ -40,7 +43,8 @@ public class PlayerSearch : MonoBehaviour
         if (!isNearDumpster || states.IsBusy()) return;
         // Snap to dumpster
         Vector3 pos = transform.position;
-        transform.position = new Vector3(currentDumpster.position.x, pos.y, pos.z);
+        currentDumpster.OpenLid();
+        transform.position = new Vector3(currentDumpsterLocation.position.x, pos.y, pos.z);
         // Start search
         states.SetState(PlayerState.Searching);
         searchRoutine = StartCoroutine(FinishSearch());
@@ -49,9 +53,7 @@ public class PlayerSearch : MonoBehaviour
     private IEnumerator FinishSearch()
     {
         yield return new WaitForSeconds(searchDuration);
-
-        var ds = currentDumpster.GetComponent<Dumpster>();
-        if (ds == null)
+        if (currentDumpster == null)
         {
             states.SetState(PlayerState.Idle);
             yield break;
@@ -60,8 +62,8 @@ public class PlayerSearch : MonoBehaviour
         float spawnChance = Random.value;
         if (spawnChance < 0.8f)
         {
-            var junk = ds.GetRandomJunk();
-            var go = Instantiate(junk.junkItem, currentDumpster.position + Vector3.up, Quaternion.identity);
+            var junk = currentDumpster.GetRandomJunk();
+            var go = Instantiate(junk.junkItem, currentDumpsterLocation.position + Vector3.up, Quaternion.identity);
             var rb = go.GetComponent<Rigidbody2D>();
             if (rb) rb.AddForce(new Vector2(Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);
 
@@ -69,9 +71,9 @@ public class PlayerSearch : MonoBehaviour
         }
         else
         {
-            var prefab = ds.racoon;
+            var prefab = currentDumpster.racoon;
             float spawnX = Random.value < 0.5f ? -2f : 2f;
-            var r = Instantiate(prefab, currentDumpster.position + new Vector3(spawnX, 1f, 0), Quaternion.identity);
+            var r = Instantiate(prefab, currentDumpsterLocation.position + new Vector3(spawnX, 1f, 0), Quaternion.identity);
             var rb = r.GetComponent<Rigidbody2D>();
             if (rb)
             {
@@ -80,7 +82,7 @@ public class PlayerSearch : MonoBehaviour
             }
         }
 
-        ds.CloseLid();
+        currentDumpster.CloseLid();
         states.SetState(PlayerState.Idle);
     }
 }

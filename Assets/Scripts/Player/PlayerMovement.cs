@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
+
+
     void Update()
     {
         CheckGround();
