@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 6091581529161173553}
   - component: {fileID: 8942379926258286106}
   - component: {fileID: 4367540991912600413}
-  - component: {fileID: 6515269872437656357}
+  - component: {fileID: 984777135459406202}
   - component: {fileID: -705698802353805708}
-  - component: {fileID: -1502642327225467851}
   - component: {fileID: 1188070301947171204}
   - component: {fileID: 3680837601034783460}
   m_Layer: 10
@@ -176,8 +175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5006e30bdf5e71845b55c804ce4df420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePuffPrefab: {fileID: 0}
   speed: 5
---- !u!114 &6515269872437656357
+  activeTime: 0.2
+  TorqueRange: 8
+  kickForce: 4
+  delay: 1.4
+--- !u!114 &984777135459406202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,11 +190,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2834379808135999443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b8ee3aef765da4babc28d95ee6b24c, type: 3}
+  m_Script: {fileID: 11500000, guid: 717a4b70ddd80bc48a4927c1e0a9868e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   smooshEffect: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
+  bootEffect: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
   smooshSound: {fileID: 8300000, guid: 2e8c8940ee7a5e04a9fff1adc17f8714, type: 3}
+  bootSound: {fileID: 8300000, guid: 2e8c8940ee7a5e04a9fff1adc17f8714, type: 3}
+  scoreValue: 10
+  bootForce: 5
 --- !u!114 &-705698802353805708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,18 +218,6 @@ MonoBehaviour:
   smokePuffPrefab: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
   anim: {fileID: 1188070301947171204}
   TorqueRange: 15
---- !u!114 &-1502642327225467851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834379808135999443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 798601c12754f344181e47444f12d0ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1188070301947171204
 Animator:
   serializedVersion: 5

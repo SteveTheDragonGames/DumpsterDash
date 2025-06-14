@@ -15,17 +15,11 @@ public class ScoreManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-
         scoreText = GetComponent<UnityEngine.UI.Text>();
-        UpdateScoreText();
-        
-    }
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.P)) AddScore(1);
+        ResetScore();            
     }
 
     public void AddScore(int amount)

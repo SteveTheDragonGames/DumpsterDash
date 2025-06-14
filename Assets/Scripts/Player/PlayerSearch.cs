@@ -82,6 +82,7 @@ public class PlayerSearch : MonoBehaviour
             }
         }
 
+        yield return new WaitForSeconds(0.2f);
         currentDumpster.CloseLid();
         states.SetState(PlayerState.Idle);
     }
