@@ -22,9 +22,10 @@ public class KickHitBox : MonoBehaviour
     {
         RatHit rat = other.GetComponent<RatHit>();
         if (rat != null)
-        {
+        { 
             Vector2 dir = (other.transform.position - transform.position).normalized;
             rat.HitRat(RatHit.HitType.Boot, dir);
+            UnityEngine.Debug.Log("Kick hit! Direction: " + dir + ", Target: " + other.name);
         }
     }
 }

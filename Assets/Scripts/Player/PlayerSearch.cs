@@ -67,7 +67,13 @@ public class PlayerSearch : MonoBehaviour
             var rb = go.GetComponent<Rigidbody2D>();
             if (rb) rb.AddForce(new Vector2(Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);
 
-            signAnimator.PopSign(junk.name, junk.description);
+            if (signAnimator != null)
+                signAnimator.PopSign(junk.name, junk.description);
+            else
+                Debug.LogWarning("SignAnimator not hooked up!");
+
+
+            
         }
         else
         {

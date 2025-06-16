@@ -12,6 +12,12 @@ public class PlayerActions : MonoBehaviour
     private PlayerStates states;
     private Animator anim;
     private KickHitBox kickBoxScript;
+    private string KICK_ANIMATION = "isKicking";
+    private string HOWL_ANIMATION = "isHowling";
+    private string SPRITZ_ANIMATION = "isSpritzing";
+    private string HIT_ANIMATION = "isHit";
+    private string DEATH_ANIMATION = "isDead";
+
 
     void Awake()
     {
@@ -31,10 +37,12 @@ public class PlayerActions : MonoBehaviour
 
     public void SpritzOrKick()
     {
+        if (states.IsBusy() || states.IsState(PlayerState.Dead)) return;
         if (spritzes > 0)
         {
             states.SetState(PlayerState.Attacking);
-            anim.SetBool("isSpritzing", true);
+            if (anim != null) anim.SetBool(SPRITZ_ANIMATION, true);
+            spritzes--;
             StartCoroutine(FinishSpritz());
         }
         else
@@ -46,31 +54,35 @@ public class PlayerActions : MonoBehaviour
     private IEnumerator FinishSpritz()
     {
         yield return new WaitForSeconds(spritzDuration);
-        anim.SetBool("isSpritzing", false);
-        states.SetState(PlayerState.Idle);
+        if (anim != null) anim.SetBool(SPRITZ_ANIMATION, false);
+        if (!states.IsState(PlayerState.Dead))
+            states.SetState(PlayerState.Idle);
     }
 
     public void Howl()
     {
+        if (states.IsBusy() || states.IsState(PlayerState.Dead)) return;
         states.SetState(PlayerState.Howling);
-        anim.SetBool("Howl", true);
+        if (anim != null) anim.SetBool(HOWL_ANIMATION, true);
         StartCoroutine(FinishHowl());
     }
 
     private IEnumerator FinishHowl()
     {
         yield return new WaitForSeconds(howlDuration);
-        anim.SetBool("Howl", false);
-        states.SetState(PlayerState.Idle);
+        if (anim != null) anim.SetBool(HOWL_ANIMATION, false);
+        if (!states.IsState(PlayerState.Dead))
+            states.SetState(PlayerState.Idle);
     }
 
     public void Kick()
     {
+        if (states.IsBusy() || states.IsState(PlayerState.Dead)) return;
         if (kickHitBox == null || kickBoxScript == null) return;
 
         kickHitBox.SetActive(true);
         states.SetState(PlayerState.Kicking);
-        anim.SetTrigger("doKick");
+        if (anim != null) anim.SetTrigger(KICK_ANIMATION);
 
         StartCoroutine(ResetStateAfterKick(kickBoxScript.activeTime));
     }
@@ -80,4 +92,29 @@ public class PlayerActions : MonoBehaviour
         yield return new WaitForSeconds(duration);
         states.SetState(PlayerState.Idle);
     }
+
+    public void Hit()
+    {
+        if (states.IsBusy() || states.IsState(PlayerState.Dead)) return;
+        if (anim != null) anim.SetTrigger(HIT_ANIMATION);
+        states.SetState(PlayerState.Stunned);
+        StartCoroutine(RecoverFromHit());
+    }
+    public void Die()
+    {
+        if (states.IsBusy() || states.IsState(PlayerState.Dead)) return;
+        if (anim != null) anim.SetTrigger(DEATH_ANIMATION);
+        states.SetState(PlayerState.Dead);
+    }
+
+    IEnumerator RecoverFromHit()
+    {
+        yield return new WaitForSeconds(0.75f);
+        if (!states.IsState(PlayerState.Dead))
+            states.SetState(PlayerState.Idle);
+    }
+
+
 }
+
+

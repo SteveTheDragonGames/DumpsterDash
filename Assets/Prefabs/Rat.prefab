@@ -161,7 +161,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4367540991912600413
 MonoBehaviour:
@@ -175,12 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5006e30bdf5e71845b55c804ce4df420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smokePuffPrefab: {fileID: 0}
   speed: 5
-  activeTime: 0.2
-  TorqueRange: 8
-  kickForce: 4
-  delay: 1.4
 --- !u!114 &984777135459406202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,12 +188,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717a4b70ddd80bc48a4927c1e0a9868e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1188070301947171204}
+  victoryDelay: 0.5
+  tPoseChance: 0.1
+  floatingScoreAnchor: {fileID: 0}
+  floatingScore: {fileID: 5458175689171523618, guid: 9a417cda1e580584e8ab7631b7e03185, type: 3}
   smooshEffect: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
   bootEffect: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
   smooshSound: {fileID: 8300000, guid: 2e8c8940ee7a5e04a9fff1adc17f8714, type: 3}
   bootSound: {fileID: 8300000, guid: 2e8c8940ee7a5e04a9fff1adc17f8714, type: 3}
   scoreValue: 10
   bootForce: 5
+  debugHitLog: 1
 --- !u!114 &-705698802353805708
 MonoBehaviour:
   m_ObjectHideFlags: 0

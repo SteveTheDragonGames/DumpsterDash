@@ -10,12 +10,14 @@ public enum PlayerState
     Attacking,
     Kicking,
     Howling,
-    Stunned
+    Stunned,
+    Dead
 }
 
 public class PlayerStates : MonoBehaviour
 {
     public PlayerState currentState = PlayerState.Idle;
+    public bool IsDead() => currentState == PlayerState.Dead;
 
     public void SetState(PlayerState newState)
     {
@@ -39,5 +41,8 @@ public class PlayerStates : MonoBehaviour
 
     public bool CanJump() => (currentState == PlayerState.Idle || currentState == PlayerState.Moving);
     public bool CanSearch() => (currentState == PlayerState.Idle || currentState == PlayerState.Moving);
-    public bool IsBusy() => currentState == PlayerState.Searching || currentState == PlayerState.Howling || currentState == PlayerState.Stunned;
+    public bool IsBusy() => currentState == PlayerState.Searching ||
+                            currentState == PlayerState.Howling ||
+                            currentState == PlayerState.Stunned ||
+                            currentState == PlayerState.Dead;
 }
