@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 11291964}
   - component: {fileID: 11291963}
   - component: {fileID: 11291962}
+  - component: {fileID: 11291969}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -425,6 +426,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+--- !u!114 &11291969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11291954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9b3bfb9d6a35947b83b78a0f71e3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthFill: {fileID: 321467233}
+  maxHealth: 100
+  currentHealth: 0
+  portraitFull: {fileID: 0}
+  portraitInjured: {fileID: 0}
+  portraitCritical: {fileID: 0}
 --- !u!1 &39870909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &933132959
 MonoBehaviour:
   m_ObjectHideFlags: 0
