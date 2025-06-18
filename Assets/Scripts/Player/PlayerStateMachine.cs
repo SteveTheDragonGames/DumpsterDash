@@ -23,7 +23,7 @@ public class PlayerStates : MonoBehaviour
     {
         if (currentState == newState) return;
         currentState = newState;
-        Debug.Log("State changed to: " + currentState);
+        //Debug.Log("State changed to: " + currentState);
     }
 
     public bool IsState(PlayerState state) => currentState == state;

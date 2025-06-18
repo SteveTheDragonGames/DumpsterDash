@@ -21,10 +21,11 @@ public class PlayerAnimationController : MonoBehaviour
         anim.SetBool("isSearching", states.IsState(PlayerState.Searching));
         // Spritz, Howl, and Kick are handled in their respective modules
 
-
+        /*
         #if UNITY_EDITOR
         Debug.Log("Current State: " + states.currentState);
         #endif  
+        */
     }
 
 }

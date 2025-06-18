@@ -12,6 +12,8 @@ public class PlayerSearch : MonoBehaviour
     private Transform currentDumpsterLocation;
     private Coroutine searchRoutine;
     private Dumpster currentDumpster;
+    private int level = 1;
+
 
     void Awake()
     {
@@ -79,7 +81,15 @@ public class PlayerSearch : MonoBehaviour
         {
             var prefab = currentDumpster.racoon;
             float spawnX = Random.value < 0.5f ? -2f : 2f;
+
             var r = Instantiate(prefab, currentDumpsterLocation.position + new Vector3(spawnX, 1f, 0), Quaternion.identity);
+
+            // Set aggression on the actual instance
+            var ai = r.GetComponent<RaccoonAI>();
+            if (ai != null)
+                ai.aggressionChance = 0.1f + (level * 0.1f);
+
+            // Add launch force
             var rb = r.GetComponent<Rigidbody2D>();
             if (rb)
             {
@@ -87,6 +97,7 @@ public class PlayerSearch : MonoBehaviour
                 rb.AddForce(new Vector2(Random.Range(-1.5f, 1.5f), 10f), ForceMode2D.Impulse);
             }
         }
+
 
         yield return new WaitForSeconds(0.2f);
         currentDumpster.CloseLid();
