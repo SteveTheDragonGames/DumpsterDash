@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class RaccoonAI : MonoBehaviour
@@ -28,6 +29,28 @@ public class RaccoonAI : MonoBehaviour
     [Range(0f, 1f)]
     public float aggressionChance = 0.2f; // Starts low (10–20%)
 
+    //Raccoon health
+    [SerializeField] private int maxHealth = 10;
+    private int currentHealth;
+    private bool isDead = false;
+
+    //Raccoon windup time
+    [SerializeField] private float attackWindupTime = 0.5f;
+
+    //Raccoon Stunned time
+    private float flinchTime = 0.4f;
+
+    //Animation states
+    const string IDLE_ANIMATION = "isIdle";
+    const string CHASING_ANIMATION = "isChasing";
+    const string RETREATING_ANIMATION = "isRetreating";
+    const string ATTACK_ANIMATION = "ATTACK";
+    const string STUNNED_ANIMATION = "STUNNED";
+    const string DEATH_ANIMATION = "DEATH";
+    const string HIT_ANIMATION = "isHit";
+    const string WINDUP_ANIMATION = "isWindingUp";
+
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -36,27 +59,30 @@ public class RaccoonAI : MonoBehaviour
 
     void Start()
     {
+        //create a player reference
         if (player == null)
         {
             player = GameObject.FindWithTag("Player").transform;
         }
+        //initialize health
+        currentHealth = maxHealth;
     }
 
     public void DecideInitialBehavior()
     {
         float roll = Random.value;
-        Debug.Log($"Raccoon roll: {roll}, aggressionChance: {aggressionChance}");
+        UnityEngine.Debug.Log($"Raccoon roll: {roll}, aggressionChance: {aggressionChance}");
 
         if (roll < aggressionChance)
         {
             currentState = RaccoonState.Attack;
-            Debug.Log("Raccoon decided: ATTACK!");
+            UnityEngine.Debug.Log("Raccoon decided: ATTACK!");
         }
         else
         {
             currentState = RaccoonState.Retreat;
-            Debug.Log("Raccoon decided: RETREAT!");
-            anim.SetBool("isRetreating", true);
+            UnityEngine.Debug.Log("Raccoon decided: RETREAT!");
+            anim.SetBool(RETREATING_ANIMATION, true);
         }
     }
 
@@ -97,7 +123,7 @@ public class RaccoonAI : MonoBehaviour
         {
             currentState = RaccoonState.Chase;
             ResetAnimationStates();
-            anim.SetBool("isChasing", true);
+            anim.SetBool(CHASING_ANIMATION, true);
         }
     }
 
@@ -117,7 +143,7 @@ public class RaccoonAI : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             currentState = RaccoonState.Attack;
-            anim.SetBool("isChasing", false); // Exit CHASE state cleanly
+            anim.SetBool(CHASING_ANIMATION, false); // Exit CHASE state cleanly
         }
     }
 
@@ -129,15 +155,28 @@ public class RaccoonAI : MonoBehaviour
         if (!hasAttacked)
         {
             hasAttacked = true;
-            anim.SetTrigger("ATTACK"); // Trigger the attack animation
-            rb.velocity = Vector2.zero; // Lock in place during attack
-
-            DealDamageIfPlayerInRange();
-            // Give it time to finish the animation before changing state
-            Invoke(nameof(EndAttack), 0.5f); // Adjust 0.5f to match anim length
-
+            StartCoroutine(AttackWindup());
         }
     }
+
+    IEnumerator AttackWindup()
+    {
+        anim.SetBool(WINDUP_ANIMATION, true); // New animation trigger for windup frame
+        yield return new WaitForSeconds(attackWindupTime);
+        ExecuteAttack();
+    }
+
+    void ExecuteAttack()
+    {
+        anim.SetBool(WINDUP_ANIMATION, false);
+        anim.SetTrigger(ATTACK_ANIMATION); // Trigger the attack animation
+        rb.velocity = Vector2.zero; // Lock in place during attack
+
+        DealDamageIfPlayerInRange();
+        // Give it time to finish the animation before changing state
+        Invoke(nameof(EndAttack), 0.5f); // Adjust 0.5f to match anim length
+    }
+
 
 
     void EndAttack()
@@ -181,12 +220,42 @@ public class RaccoonAI : MonoBehaviour
         isStunned = false;
         currentState = RaccoonState.Idle;
         ResetAnimationStates();
-        anim.SetBool("isIdle", true);
-        anim.SetBool("isChasing", false);
-        anim.SetBool("isRetreating", false);
+        anim.SetBool(IDLE_ANIMATION, true);
+        anim.SetBool(CHASING_ANIMATION, false);
+        anim.SetBool(RETREATING_ANIMATION, false);
     }
 
     void HandleStunned() { /* Empty, just managed by coroutine */ }
+
+    public void TakeHit(int damage)
+    {
+        if ((isDead || isStunned)) return;
+        currentHealth -= damage;
+        UnityEngine.Debug.Log($"Raccoon took {damage} damage. Remaining: {currentHealth}");
+
+        if (currentHealth <=0)
+        {
+            Die();
+        }
+        else
+        {
+            StartCoroutine(Flinch());
+        }
+    }
+
+    IEnumerator Flinch()
+    {
+        currentState = RaccoonState.Stunned;
+        isStunned = true;
+        anim.Play(HIT_ANIMATION);//plays flinch frame
+        rb.velocity = Vector2.zero;
+
+        yield return new WaitForSeconds(flinchTime);
+        isStunned = false;
+        currentState = RaccoonState.Idle;
+        ResetAnimationStates();
+        anim.SetBool(IDLE_ANIMATION, true);
+    }
 
     void HandleBerserk()
     {
@@ -195,9 +264,9 @@ public class RaccoonAI : MonoBehaviour
 
     void ResetAnimationStates()
     {
-        anim.SetBool("isIdle", false);
-        anim.SetBool("isChasing", false);
-        anim.SetBool("isRetreating", false);
+        anim.SetBool(IDLE_ANIMATION, false);
+        anim.SetBool(CHASING_ANIMATION, false);
+        anim.SetBool(RETREATING_ANIMATION, false);
     }
 
     void HandleRetreat()
@@ -213,11 +282,21 @@ public class RaccoonAI : MonoBehaviour
         );
 
         // Set Animator flag
-        if (!anim.GetBool("isRetreating"))
-            anim.SetBool("isRetreating", true);
+        if (!anim.GetBool(RETREATING_ANIMATION))
+            anim.SetBool(RETREATING_ANIMATION, true);
 
-        anim.SetBool("isChasing", false);
-        anim.SetBool("isIdle", false);
+        anim.SetBool(CHASING_ANIMATION, false);
+        anim.SetBool(IDLE_ANIMATION, false);
+    }
+
+    void Die()
+    {
+        isDead = true;
+        rb.velocity = Vector2.zero;
+        anim.SetTrigger(DEATH_ANIMATION);//gotta make a death animation state.
+        GetComponent<BoxCollider2D>().enabled = false;
+        //optionally destroy after time
+        Destroy(gameObject, 3f);
     }
 
 }
