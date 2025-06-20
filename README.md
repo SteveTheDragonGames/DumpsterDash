@@ -3,6 +3,9 @@ A chaotic, cartoon-style arcade scavenger hunt starring one determined coyote.
 
 Dumpster Dash is a 2D action-platformer built in Unity, where you play as a trash-hopping coyote dodging rats, battling raccoons, and looting junk from every dumpster in sight. Fast-paced, silly, and strangely heartfelt, this game is a love letter to retro arcade chaos with a modern furry flair.
 
+> 🌀 **Preliminary Build:** Dumpster Dash is still in early development. All visuals, characters, and trash treasures are evolving — nothing here is final or licensed for reuse. Ask before looting, wanderer.
+
+
 🎮 Features:
 🌆 Urban cartoon battlegrounds with hand-drawn sprite animation
 
