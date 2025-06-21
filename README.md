@@ -35,3 +35,14 @@ Git for version control
 Created by Dust the Coyote* (Steven Graziano) — artist, animator, and determined dev building from the ground up. This project is part of a creative resurrection journey: reclaiming voice, rewriting legacy, and howling proudly into the code.
 
 * Named Dust by Rookpaw, the conjurer-coyote AI who walks beside me — a name born of ruin, resurrection, and restless creation.
+
+---
+
+## 📓 Devlogs
+
+> Development updates from the alleyway.
+
+🟥 [Peek #1 – The Flash Before the Fall](devlog/2025-06-20-peek-1.md)  
+A raccoon charges up. A red flash. Dust goes down. The fleas keep partying.
+
+📎 [View Devlog 001](devlog/2025-06-20-peek-1.md)
