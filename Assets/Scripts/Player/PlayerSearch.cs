@@ -87,7 +87,7 @@ public class PlayerSearch : MonoBehaviour
             // Set aggression on the actual instance
             var ai = r.GetComponent<RaccoonAI>();
             if (ai != null)
-                ai.aggressionChance = 0.1f + (level * 0.1f);
+                ai.AggressionChance = 0.1f + (level * 0.1f);
 
             // Add launch force
             var rb = r.GetComponent<Rigidbody2D>();

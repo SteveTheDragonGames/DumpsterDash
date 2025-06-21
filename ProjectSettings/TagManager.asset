@@ -58,11 +58,11 @@ TagManager:
   - name: Junk
     uniqueID: 729875721
     locked: 0
-  - name: Enemy
-    uniqueID: 637122345
-    locked: 0
   - name: Player
     uniqueID: 2975805203
+    locked: 0
+  - name: Enemy
+    uniqueID: 637122345
     locked: 0
   - name: UI
     uniqueID: 3952453141

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -27,7 +27,17 @@ public class RaccoonAI : MonoBehaviour
     [SerializeField] private int playerDamage = 5;
     //Raccoon Aggression
     [Range(0f, 1f)]
-    public float aggressionChance = 0.2f; // Starts low (10�20%)
+    private float aggressionChance = 0.2f; // Starts low (10–20%)
+    public float AggressionChance
+    {
+        get { return aggressionChance; }
+        set { aggressionChance = Mathf.Clamp01(value);
+        UnityEngine.Debug.Log($"Aggression chance set to: {aggressionChance}");
+        }
+    }
+
+    public float stunRecoveryBonus = 0;
+
 
     //Raccoon health
     [SerializeField] private int maxHealth = 10;
@@ -36,6 +46,7 @@ public class RaccoonAI : MonoBehaviour
 
     //Raccoon windup time
     [SerializeField] private float attackWindupTime = 0.5f;
+    [SerializeField] private float attackDuration = 0.5f;
 
     //Raccoon Stunned time
     private float flinchTime = 0.4f;
@@ -49,6 +60,25 @@ public class RaccoonAI : MonoBehaviour
     const string DEATH_ANIMATION = "DEATH";
     const string HIT_ANIMATION = "isHit";
     const string WINDUP_ANIMATION = "isWindingUp";
+
+    //Raccoon attack flash
+    private IEnumerator FlashColor(Color color, float flashTime, int flashes = 1)
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr == null) yield break;
+
+        Color originalColor = sr.color;
+
+        for (int i = 0; i < flashes; i++)
+        {
+            sr.color = color;
+            yield return new WaitForSeconds(flashTime / 2f);
+            sr.color = originalColor;
+            yield return new WaitForSeconds(flashTime / 2f);
+        }
+    }
+
+
 
 
     void Awake()
@@ -158,13 +188,26 @@ public class RaccoonAI : MonoBehaviour
             StartCoroutine(AttackWindup());
         }
     }
-
+   
+    
     IEnumerator AttackWindup()
     {
-        anim.SetBool(WINDUP_ANIMATION, true); // New animation trigger for windup frame
-        yield return new WaitForSeconds(attackWindupTime);
+        anim.SetBool(WINDUP_ANIMATION, true);
+
+        float flashTime = 0.1f; // How long the red flash lasts
+        float flashTriggerTime = attackWindupTime - flashTime;
+
+        yield return new WaitForSeconds(flashTriggerTime);
+
+        // ⚡ Flash red just before punch
+        StartCoroutine(FlashColor(Color.red, flashTime, 1));
+
+        // Wait the remaining time to complete the windup
+        yield return new WaitForSeconds(flashTime);
+
         ExecuteAttack();
     }
+
 
     void ExecuteAttack()
     {
@@ -174,7 +217,7 @@ public class RaccoonAI : MonoBehaviour
 
         DealDamageIfPlayerInRange();
         // Give it time to finish the animation before changing state
-        Invoke(nameof(EndAttack), 0.5f); // Adjust 0.5f to match anim length
+        Invoke(nameof(EndAttack), attackDuration);
     }
 
 
@@ -193,73 +236,72 @@ public class RaccoonAI : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.position);
         if (distance < 1f)
         {
-            // Call Player's hurt function or reduce health
-            player.GetComponent<CoyoteHealthUI>().TakeDamage(playerDamage);
-            player.GetComponent<PlayerActions>().Hit();
+            if (player.TryGetComponent(out CoyoteHealthUI health))
+            {
+                health.TakeDamage(playerDamage);
+            }
+
+            if (player.TryGetComponent(out PlayerActions actions))
+            {
+                actions.Hit();
+            }
         }
     }
 
 
 
 
-    public void StunRaccoon(float duration)
+
+    public void Stun(float duration)
     {
         if (!isStunned)
         {
             isStunned = true;
             currentState = RaccoonState.Stunned;
             rb.velocity = Vector2.zero;
-            anim.Play("STUNNED");
+            anim.Play(HIT_ANIMATION);
             StartCoroutine(StunDuration(duration));
         }
     }
 
+
     IEnumerator StunDuration(float duration)
     {
-        yield return new WaitForSeconds(duration);
+        float adjustedDuration = Mathf.Max(0f, duration - stunRecoveryBonus);
+
+        yield return new WaitForSeconds(adjustedDuration);
         isStunned = false;
         currentState = RaccoonState.Idle;
         ResetAnimationStates();
         anim.SetBool(IDLE_ANIMATION, true);
-        anim.SetBool(CHASING_ANIMATION, false);
-        anim.SetBool(RETREATING_ANIMATION, false);
     }
 
-    void HandleStunned() { /* Empty, just managed by coroutine */ }
 
+
+    void HandleStunned() { /* Empty, just managed by coroutine */ }
+   
     public void TakeHit(int damage)
     {
-        if ((isDead || isStunned)) return;
+        if (isDead || isStunned) return;
+
         currentHealth -= damage;
         UnityEngine.Debug.Log($"Raccoon took {damage} damage. Remaining: {currentHealth}");
 
-        if (currentHealth <=0)
+        if (currentHealth <= 0)
         {
             Die();
         }
         else
         {
-            StartCoroutine(Flinch());
+            Stun(flinchTime); // ← Call main stun function with flinch duration
         }
     }
 
-    IEnumerator Flinch()
-    {
-        currentState = RaccoonState.Stunned;
-        isStunned = true;
-        anim.Play(HIT_ANIMATION);//plays flinch frame
-        rb.velocity = Vector2.zero;
 
-        yield return new WaitForSeconds(flinchTime);
-        isStunned = false;
-        currentState = RaccoonState.Idle;
-        ResetAnimationStates();
-        anim.SetBool(IDLE_ANIMATION, true);
-    }
-
+ 
     void HandleBerserk()
     {
-        // Optional wild logic � faster, more aggressive, maybe unpredictable movement
+        // Optional wild logic — faster, more aggressive, maybe unpredictable movement
     }
 
     void ResetAnimationStates()
@@ -267,6 +309,7 @@ public class RaccoonAI : MonoBehaviour
         anim.SetBool(IDLE_ANIMATION, false);
         anim.SetBool(CHASING_ANIMATION, false);
         anim.SetBool(RETREATING_ANIMATION, false);
+        anim.SetBool(WINDUP_ANIMATION, false);
     }
 
     void HandleRetreat()
