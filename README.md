@@ -45,4 +45,5 @@ Created by Dust the Coyote* (Steven Graziano) — artist, animator, and determin
 🟥 [Peek #1 – The Flash Before the Fall](devlog/2025-06-20-peek-1.md)  
 A raccoon charges up. A red flash. Dust goes down. The fleas keep partying.
 
-📎 [View Devlog 001](devlog/2025-06-20-peek-1.md)
+![Peek #1](devlog/screenshots/peek_1.gif)
+
