@@ -6,11 +6,9 @@ public class Rat : MonoBehaviour
 {
     private BoxCollider2D col2D;
     public float speed = 5f;
-    private SpriteRenderer sr;
 
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
         col2D = GetComponent<BoxCollider2D>();
         col2D.enabled = false;
         Invoke(nameof(EnableCollider), 0.5f);
@@ -32,7 +30,7 @@ public class Rat : MonoBehaviour
     public void TurnAround()
     {
         //turn around brighteyes
-        //speed = -speed;
+        speed = -speed;
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
