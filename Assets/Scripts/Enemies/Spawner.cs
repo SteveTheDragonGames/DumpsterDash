@@ -16,7 +16,6 @@ public class Spawner : MonoBehaviour
     private int randomSide;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnRats());
@@ -36,23 +35,15 @@ public class Spawner : MonoBehaviour
             if(randomSide ==0)
             {
                 spawnedRat.transform.position = leftPos.position;
-                spawnedRat.GetComponent<Rat>().speed = UnityEngine.Random.Range(3, 10);
+                spawnedRat.GetComponent<RatAI>().moveSpeed = UnityEngine.Random.Range(3, 10);
             }
             else
             {
                 spawnedRat.transform.localScale = new Vector3(-1f, 1f, 1f);//flip
                 spawnedRat.transform.position = rightPos.position;
-                spawnedRat.GetComponent<Rat>().speed = -UnityEngine.Random.Range(3, 10);
+                spawnedRat.GetComponent<RatAI>().moveSpeed = -UnityEngine.Random.Range(3, 10);
                 
             }
-
-
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

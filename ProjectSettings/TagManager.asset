@@ -8,10 +8,12 @@ TagManager:
   - Dumpster
   - SpritzBottle
   - Junk
-  - Boundary
   - Rat
-  - PlayerKicker
   - Ground
+  - PlayerFeet
+  - ElectricZone
+  - Undefined
+  - KickHitBox
   layers:
   - Default
   - TransparentFX

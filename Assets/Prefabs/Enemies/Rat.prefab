@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 6534019110674272690}
   - component: {fileID: 6091581529161173553}
   - component: {fileID: 8942379926258286106}
-  - component: {fileID: 4367540991912600413}
-  - component: {fileID: 984777135459406202}
-  - component: {fileID: -705698802353805708}
   - component: {fileID: 1188070301947171204}
+  - component: {fileID: 8044434661570767015}
   - component: {fileID: 3680837601034783460}
   m_Layer: 10
   m_Name: Rat
@@ -164,61 +162,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &4367540991912600413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834379808135999443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5006e30bdf5e71845b55c804ce4df420, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
---- !u!114 &984777135459406202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834379808135999443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717a4b70ddd80bc48a4927c1e0a9868e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1188070301947171204}
-  victoryDelay: 0.5
-  tPoseChance: 0.1
-  floatingScore: {fileID: 5458175689171523618, guid: 9a417cda1e580584e8ab7631b7e03185, type: 3}
-  smooshEffect: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
-  bootEffect: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
-  smooshSound: {fileID: 8300000, guid: 2e8c8940ee7a5e04a9fff1adc17f8714, type: 3}
-  bootSound: {fileID: 8300000, guid: 2e8c8940ee7a5e04a9fff1adc17f8714, type: 3}
-  scoreValue: 10
-  bootForce: 5
-  debugHitLog: 1
---- !u!114 &-705698802353805708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834379808135999443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4e56135bead1144947b58eb81905cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalSqueak: {fileID: 8300000, guid: d382ea467fff6764d998bb871d846d2e, type: 3}
-  wilhelmSqueak: {fileID: 8300000, guid: eab42a3a3f6fe144a8bbea4115b4c667, type: 3}
-  audioSource: {fileID: 3680837601034783460}
-  wilhelmChance: 0.03
-  smokePuffPrefab: {fileID: 7186569184204629326, guid: ec77158b1ff017f46997841611d54f69, type: 3}
-  anim: {fileID: 1188070301947171204}
-  TorqueRange: 15
 --- !u!95 &1188070301947171204
 Animator:
   serializedVersion: 5
@@ -240,6 +183,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8044434661570767015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834379808135999443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9b654efeee10b419dc1b352e3e9097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!82 &3680837601034783460
 AudioSource:
   m_ObjectHideFlags: 0
