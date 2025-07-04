@@ -23,26 +23,27 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnRats()
     {
-        while(true)
+        while (true)
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(1,6));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1, 6));
 
             randomIndex = UnityEngine.Random.Range(0, rats.Length);
             randomSide = UnityEngine.Random.Range(0, 2);
 
             spawnedRat = Instantiate(rats[randomIndex]);
+            RatAI ratScript = spawnedRat.GetComponent<RatAI>();
+            ratScript.SetState(RatState.Roaming);
 
-            if(randomSide ==0)
+            if (randomSide == 0)
             {
                 spawnedRat.transform.position = leftPos.position;
-                spawnedRat.GetComponent<RatAI>().moveSpeed = UnityEngine.Random.Range(3, 10);
+                ratScript.moveSpeed = UnityEngine.Random.Range(3, 10);
             }
             else
             {
-                spawnedRat.transform.localScale = new Vector3(-1f, 1f, 1f);//flip
+                spawnedRat.transform.localScale = new Vector3(-1f, 1f, 1f);
                 spawnedRat.transform.position = rightPos.position;
-                spawnedRat.GetComponent<RatAI>().moveSpeed = -UnityEngine.Random.Range(3, 10);
-                
+                ratScript.moveSpeed = -UnityEngine.Random.Range(3, 10);
             }
         }
     }

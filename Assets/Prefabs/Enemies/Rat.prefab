@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6091581529161173553}
   - component: {fileID: 8942379926258286106}
   - component: {fileID: 1188070301947171204}
-  - component: {fileID: 8044434661570767015}
   - component: {fileID: 3680837601034783460}
+  - component: {fileID: 1667531346907666844}
   m_Layer: 10
   m_Name: Rat
   m_TagString: Rat
@@ -183,19 +183,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8044434661570767015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2834379808135999443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9b654efeee10b419dc1b352e3e9097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
 --- !u!82 &3680837601034783460
 AudioSource:
   m_ObjectHideFlags: 0
@@ -292,6 +279,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1667531346907666844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834379808135999443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d226db482753f49be3477ad7b03a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!1001 &9109700922065349090
 PrefabInstance:
   m_ObjectHideFlags: 0
