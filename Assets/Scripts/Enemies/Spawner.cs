@@ -32,18 +32,18 @@ public class Spawner : MonoBehaviour
 
             spawnedRat = Instantiate(rats[randomIndex]);
             RatAI ratScript = spawnedRat.GetComponent<RatAI>();
-            ratScript.SetState(RatState.Roaming);
+            ratScript.ResetRat();
 
             if (randomSide == 0)
             {
                 spawnedRat.transform.position = leftPos.position;
-                ratScript.moveSpeed = UnityEngine.Random.Range(3, 10);
+                ratScript.moveSpeed = -UnityEngine.Random.Range(3, 10);
             }
             else
             {
                 spawnedRat.transform.localScale = new Vector3(-1f, 1f, 1f);
                 spawnedRat.transform.position = rightPos.position;
-                ratScript.moveSpeed = -UnityEngine.Random.Range(3, 10);
+                ratScript.moveSpeed = UnityEngine.Random.Range(3, 10);
             }
         }
     }

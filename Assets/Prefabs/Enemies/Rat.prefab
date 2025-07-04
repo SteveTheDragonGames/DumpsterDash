@@ -150,7 +150,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -292,6 +292,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  knockbackForce: 8
+  torqueForce: 30
+  animator: {fileID: 0}
+  audioSource: {fileID: 0}
+  smooshEffect: {fileID: 0}
+  bootEffect: {fileID: 0}
+  smokePuffPrefab: {fileID: 0}
+  floatingScore: {fileID: 0}
+  smooshSound: {fileID: 0}
+  bootSound: {fileID: 0}
+  normalSqueak: {fileID: 0}
+  wilhelmSqueak: {fileID: 0}
+  wilhelmChance: 0.03
+  victoryDelay: 0.5
+  tPoseChance: 0.25
 --- !u!1001 &9109700922065349090
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -46,7 +46,9 @@ public class RatAI : MonoBehaviour, IHittable
 
     void Start()
     {
-        ratState = RatState.Roaming;
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        transform.rotation = Quaternion.identity;
     }
 
     void Update()
@@ -65,6 +67,17 @@ void OnDrawGizmosSelected()
     Gizmos.DrawLine(transform.position, transform.position + (Vector3)moveDirection * 0.5f);
 }
 #endif
+
+    public void ResetRat()
+    {
+        ratState = RatState.Roaming;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        transform.rotation = Quaternion.identity;
+        canMove = true;
+        animator?.SetTrigger("Roam");
+    }
 
     public void SetState(RatState newState)
     {
