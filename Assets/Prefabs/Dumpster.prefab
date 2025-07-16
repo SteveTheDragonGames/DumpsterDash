@@ -213,7 +213,7 @@ MonoBehaviour:
     junkItem: {fileID: 4828546417893475742, guid: 108cddf9feb982845926cd233d61053b, type: 3}
   - name: Toilet Paper Roll
     scoreValue: 1
-    description: Arts and Crats for the BioHazardous
+    description: Arts and Crafts for the BioHazardous
     junkItem: {fileID: 8451258888035066450, guid: 639137f98ea9ad54183aac6c63ffe308, type: 3}
   - name: Banana Peel
     scoreValue: 2
@@ -266,288 +266,288 @@ MonoBehaviour:
   - name: Greasy Napkin
     scoreValue: 1
     description: Clings to your hand like regret
-    junkItem: {fileID: 7843900204833423923, guid: 9b832b3fbe6660749940245ca2d3e4a2, type: 3}
+    junkItem: {fileID: 4635147577478289735, guid: e732c2cf449d8de438f0e18924888c26, type: 3}
   - name: Ripped Comic Page
     scoreValue: 1
     description: Platinum plated cover, the NFT of the 90s.
-    junkItem: {fileID: 7843900204833423923, guid: 9b832b3fbe6660749940245ca2d3e4a2, type: 3}
+    junkItem: {fileID: 1641027592837248329, guid: 05300d3bb4112c646851ca2a479dc7b4, type: 3}
   - name: Chewed Pen Cap
     scoreValue: 1
     description: 'No pen, just anxiety craters. '
-    junkItem: {fileID: 7843900204833423923, guid: 9b832b3fbe6660749940245ca2d3e4a2, type: 3}
+    junkItem: {fileID: 8576885519602084887, guid: 906b52cdd59cd9042bff46cbf7489afd, type: 3}
   - name: Scratcher
     scoreValue: 0
     description: Already scratched, poor person taxed.
-    junkItem: {fileID: 7843900204833423923, guid: 9b832b3fbe6660749940245ca2d3e4a2, type: 3}
+    junkItem: {fileID: 5296270709917854057, guid: d80cea75552862444905144e30c5f033, type: 3}
   - name: Tiny Plastic Dinosaur
     scoreValue: 2
     description: Eater of Tiny Army Men.
-    junkItem: {fileID: 7843900204833423923, guid: 9b832b3fbe6660749940245ca2d3e4a2, type: 3}
+    junkItem: {fileID: 9187673842266408985, guid: 6deb2e7dd2497d7428e23caccf015388, type: 3}
   - name: Loose Rubber Band
     scoreValue: 2
     description: the seed of the next worlds largest rubber ball.
-    junkItem: {fileID: 7843900204833423923, guid: 9b832b3fbe6660749940245ca2d3e4a2, type: 3}
+    junkItem: {fileID: 2830798605640865221, guid: 09ee1408a73e8d643b6f6d61259d3765, type: 3}
   Level2Junk:
   - name: Mystery VHS Tape
     scoreValue: 4
     description: Label just says "PLAY ME" in crayon.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2066728931802971788, guid: 6f9fb8d9affc1574585ada198bd961bf, type: 3}
   - name: Tinfoil Crown
     scoreValue: 3
     description: Fit for a Racoon King. Blocks 5g and common sense.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 1493872115962613618, guid: 584125364b09dc94db4580d9c7a24173, type: 3}
   - name: Designer Shoe
     scoreValue: 3
     description: Still smells expensive. Never met its match
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7106227333709845558, guid: f77eb014e4e1bcf4684f7cd0ffcf6cf0, type: 3}
   - name: Broken Glow Stick
     scoreValue: 2
     description: The glow is gone but the ear damage remains.
-    junkItem: {fileID: 0}
-  - name: Soggy Tarot Card
+    junkItem: {fileID: 2971442924246054125, guid: 8fb47fe5618d56f4898b96dbb2ff4751, type: 3}
+  - name: Faded Tarot Card
     scoreValue: 3
     description: The fool. Of course.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7726055396042521356, guid: d49e9942aecace94d90871ba1393c9ca, type: 3}
   - name: Pocket Sand
     scoreValue: 3
-    description: Used, still in good condition.
-    junkItem: {fileID: 0}
+    description: Gotta catch all the grains!
+    junkItem: {fileID: 2018922853724264547, guid: ad6c7a70f633af24987a503244272da9, type: 3}
   - name: Rabbits Paw Keychain
     scoreValue: 4
     description: Not good luck for the rabbit.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7110556840858285850, guid: 66100cc652fad81489d4ff3ee658710a, type: 3}
   - name: Doll Arm
     scoreValue: 3
     description: to say its useful is reaching.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 5816929627876733302, guid: 1de40cda97da7ba4f9ea5e79451d97db, type: 3}
   - name: Toy Sheriffs badge
     scoreValue: 3
     description: Respect my authoritah.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7087243090054647369, guid: d35635b8724af3449a684dfb1e18f537, type: 3}
   - name: Red LED Watch
     scoreValue: 2
     description: Heavy. Can be used as a weapon.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2499591392759440848, guid: 637a8797747ab5244b28c966bab1638c, type: 3}
   - name: Scorching Wheels car
     scoreValue: 3
     description: Missing a few wheels. Still fast in spirit.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7243328454213013008, guid: e0c9314b4b936a947bc6711366201290, type: 3}
   - name: Clackers
     scoreValue: 4
-    description: Oooh, I can catch something good with this!
-    junkItem: {fileID: 0}
+    description: Basically Mortar for Kids.
+    junkItem: {fileID: 6647515277651093919, guid: c3bbd3d12949c3141ba6efa8f58167c6, type: 3}
   - name: LightGunTag  Target
     scoreValue: 3
     description: Glows faintly, Gun? long gone.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2493019667373518166, guid: 65dc5f42ab09e85489aa5a8084e9c4e2, type: 3}
   - name: Casette Tape
     scoreValue: 2
     description: Spilled its guts. No pencil can save it now.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 1092720317391792472, guid: 3d194bb739473e44ca286e60306fcdfc, type: 3}
   - name: Trapper Folder
     scoreValue: 4
     description: Covered in 80s neon art, Smells faintly of backpack and math class.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7834360935171554955, guid: 6f4a104c4ea05004a9221bec6b636c2a, type: 3}
   - name: Global Geographic Magazine
     scoreValue: 1
     description: Never read. Pristine except for chewed corners.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 4104189572893896944, guid: 6d047cf4abdfd054daa4c4c8fe65faea, type: 3}
   - name: Worn out Battery
     scoreValue: 2
     description: This isn't supposed to be here. Is it getting hotter?
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2361780664981832476, guid: 49f5b70cb732cd54c9bf06f0ac776e74, type: 3}
   - name: Lettuce Patch Baby
     scoreValue: 3
     description: Looks like Peanut the Woozle. Unsettlingly beloved.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 4946510861138550857, guid: 21d24102f273159438797ea6493cf374, type: 3}
   - name: Fast Food Bag
     scoreValue: 3
     description: Has a half eaten burger! Yum! Maybe...
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 4474874339423747981, guid: b7d0f57f1f466264290fbcd79c01df7b, type: 3}
   - name: United States Online CD
     scoreValue: 2
     description: You've Got Email!
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 567658216767330421, guid: 1b205d4c60132354fbf6be2e315c4be0, type: 3}
   Level3Junk:
   - name: Dollar Store Haunted Hand Mirror
     scoreValue: 5
     description: This is pretty gory for a kids' toy.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7570240727177263502, guid: 63223f356d77cb948963aee3f9018c15, type: 3}
   - name: 3 year old unopened toaster pastry
     scoreValue: 3
     description: (based on a true story)
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 736257439854825828, guid: 7aa3158ce8864c048a05041dfcad066d, type: 3}
   - name: My Little Donkey
     scoreValue: 4
     description: Beloved by children, and unsettling adults.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 65070449999497623, guid: 29d3155a27407ad4aafa30f0aa1f0987, type: 3}
   - name: Half Eaten Cereal Box.
     scoreValue: 3
     description: It's Great! Until it isn't.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 5485390340959612298, guid: 6d9eceb913a98ce49beea5e4c4478b9c, type: 3}
   - name: Broken 45 Record.
     scoreValue: 4
     description: '"Muskrat Love" No great loss.'
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8912515924523919678, guid: 5c6dac15611160444b7470c4ed8a14ea, type: 3}
   - name: Hobby Oven
     scoreValue: 3
     description: Still Warm,full of melted army men
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 9061973247844359725, guid: c2e67e1d4bf243a49aa310078b543864, type: 3}
   - name: Broken Controller
     scoreValue: 5
     description: Its last ragequit. RIP.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 640158025072866236, guid: b84118aa8912ea74892496ecfd9a3f9d, type: 3}
   - name: Heavy Cottage Cheese Container
     scoreValue: 3
     description: Whatever you do, DONT OPEN IT.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8978487854864643830, guid: 28c766079e6396648a093becba5f64c5, type: 3}
   - name: Unopened Cheese and Cracker container.
     scoreValue: 3
     description: Must be over a decade old. Still edible.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 4292675158918417471, guid: 36966c59ea54e944c9989e30880cd58d, type: 3}
   - name: Candy Tablet Dispenser.
     scoreValue: 3
     description: The head is broken. Echoes of chalky fruit remain.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3671094943742113213, guid: 54e333b1a09497243b2f380bab70d156, type: 3}
   - name: Fanny Pack
     scoreValue: 4
     description: Filled with wrinkled napkins and toothpicks. A lifestyle.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 18685546700421987, guid: 78b6edb20afa9184094c47ebb92b12fb, type: 3}
   - name: Enamel Pin
     scoreValue: 4
     description: The secret power source of enthusiastic food servers.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2726270563900151890, guid: 79a088ef7a4161543ba8d0b42d65748b, type: 3}
   - name: Glow in the dark Stars
     scoreValue: 3
     description: no longer sticky, or glowing.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3952390068191895783, guid: 6576022cd162b684b891dabc7fc36b89, type: 3}
   - name: Roller skate wheel
     scoreValue: 4
     description: Where's the others? Or the skate for that matter?
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 6864964314096363798, guid: 7c4928f16034dc546b169076b10b202e, type: 3}
   - name: Slightly Burnt birthday candle
     scoreValue: 3
     description: It's those unblowable ones. apparently blown.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 4412413984533833263, guid: fbc605a26d9af4f4fae0563328ed8f10, type: 3}
   - name: Worlds most magic father
     scoreValue: 3
     description: Pulled the most realistic  disappearing act.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7960877642749365872, guid: 3f50832b5c524e24d81e1b33ef372591, type: 3}
   - name: Bootleg Pokemon Card
     scoreValue: 4
     description: '"PikaChug" 3000 attack and weak to milk.'
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3776761322087451541, guid: cdb8a1c0d2b941748b82d6d9dc21d25e, type: 3}
   - name: Hollow Rubber Spider
     scoreValue: 3
     description: Fun multi-colored chemical exposure!
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 4091840098456057186, guid: 0dd91e1aee7c71c42a4168aa3d951942, type: 3}
   - name: Lucky Arcade Token
     scoreValue: 3
     description: No known origin. Always comes back.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 1958366681247072951, guid: 418973dc2f8216a408dda2d2de10cb0b, type: 3}
   - name: Dog eared journal
     scoreValue: 5
     description: Only has one sentence throughout the book ' DO NOT TRUST THE RACOONS"
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8797107888600748461, guid: a8f84482728385d439baebe23732dd35, type: 3}
   Level4Junk:
   - name: Glowing Alien Lunchbox
     scoreValue: 6
     description: Sealed shut. Emits low humming and smells like grape.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3770979174257486953, guid: 7151b6d0cdfe7c94d98c06975f416148, type: 3}
   - name: "Signed Raccoon Headshot\t"
     scoreValue: 5
     description: "Autographed: \u201CStay trashy \u2013 Randy.\u201D"
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 4705354399589397827, guid: de5214c5140b76e4c8eb08f1bd844709, type: 3}
   - name: "Mystery Box (Unopened)\t"
     scoreValue: 6
-    description: 'Shakes slightly when held. Will never open. '
-    junkItem: {fileID: 0}
+    description: I have a feeling this will subvert my expectations.
+    junkItem: {fileID: 5114951562898115410, guid: 835f1d5ab8b0fd84c9e100decacca816, type: 3}
   - name: Fabled Pog Slammer
     scoreValue: 6
     description: Etched with runes. Banned from 12 School districts.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2383313663861743745, guid: bf10b3b84d195804dafb0fd7e3ae1b1f, type: 3}
   - name: Crystalized Slushie Cup
     scoreValue: 5
     description: Still frosty. Still radioactive.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2289746110976702501, guid: fe3061f119f85504587166d0e698d7c5, type: 3}
   - name: "Medieval USB Stick\t"
     scoreValue: 5
     description: Wrapped in parchment. Contains 1kb of sacred memes.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 1922824798658594833, guid: c280bad9bffb4fa40915df04d7a42521, type: 3}
   - name: Raccoon Cult Pamphlet
     scoreValue: 5
     description: "\u201CJoin us in the sacred gnawing.\u201D Comes with a clawprint."
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 6309912611211203542, guid: 47a203d7a31d0074d9e226686e01eb7f, type: 3}
   - name: Cursed Clown Doll
     scoreValue: 5
     description: Eyes follow you. Occasionally blinks.
-    junkItem: {fileID: 0}
-  - name: Legendary JuiceBag
+    junkItem: {fileID: 5703729617935995336, guid: 1090fc325e5efcd4caf082a51e0d9d67, type: 3}
+  - name: Recently Born on board sign
     scoreValue: 5
-    description: Stabbed Wrong. Still full. Still Glistening.
-    junkItem: {fileID: 0}
+    description: Negative psychology at its purest.
+    junkItem: {fileID: 8879994048226571328, guid: f322f7f8226575b40b2f50dd3212d479, type: 3}
   - name: ItchyCootchie Electronic Pet toy
     scoreValue: 5
     description: it's dead.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 105068777980674967, guid: 2cc460acbd2c82b47a73e4460a3b1c6a, type: 3}
   - name: Slime filled Mini TrashCan
     scoreValue: 5
     description: I'm sure this caused a few mutations back in its day.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7486388003877906823, guid: 621cc71ebb3fea7488fac35ee467fa01, type: 3}
   - name: Avian Trek Doll
     scoreValue: 6
-    description: "\tOooh\u2026 Captain Turk and his crewmate Bawk. Score!"
-    junkItem: {fileID: 0}
+    description: "Oooh\u2026 Captain Turk and his crewmate Bawk. Score!"
+    junkItem: {fileID: 2874486994399206064, guid: d6c5fe792f386854f896b3d79d149fd2, type: 3}
   - name: Electronic Simon Cowell game
     scoreValue: 4
     description: Musical buttons and a never-satisfied judge.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 1857036247556389251, guid: 3e17f783abcd6ee4eb692dfea5346e5f, type: 3}
   - name: WaterRing Game
     scoreValue: 4
     description: Hour of Fun! Maybe.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 1241206124801920575, guid: 10bab859c6d0741419c414c0412cd08f, type: 3}
   - name: Puzzle Cube
     scoreValue: 5
     description: Missing a few stickers. And successful attempts.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7442231018153008297, guid: 786e3c9b3de53e749bf9a443512170fd, type: 3}
   - name: Bag of Wires
     scoreValue: 5
     description: What do they connect? who knows?
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8112883536030520820, guid: ab0147980ca994043804824dfefd9670, type: 3}
   - name: Broken Brush
     scoreValue: 5
     description: What? You can't use it without a handle?
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3538158717913353572, guid: 820d5f71eb848b24fa1949d8d1b5356c, type: 3}
   - name: Water Balloons
     scoreValue: 6
     description: Oddly colored, some are begun to be  filled.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8344337604806986635, guid: cc5c81b6820e6ee45b93726f10bbd54b, type: 3}
   - name: Funky-Slop Figure
     scoreValue: 0
     description: Imma just throw this back in...
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8380955807314266257, guid: 91c27f3d848d07c4a8f216153a431870, type: 3}
   - name: Plastic Handcuffs
     scoreValue: 5
     description: "This\u2019ll go great with the sheriff badge! "
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3590091338055940489, guid: 552749b0c606d764d9d9695bed037e07, type: 3}
   Level5Junk:
   - name: Bootleg Game Console
     scoreValue: 8
     description: 500 games in one. all the same.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3336612237581281828, guid: f0b4e42de74745c478df2f1543679374, type: 3}
   - name: RCA SpinningDisc Player
     scoreValue: 9
     description: From Raging Coyote Associates. Not a LaserDisc. Gets worse every
       play.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8371937045891094019, guid: e53d44764e741bd4d92ba317ec50b6bf, type: 3}
   - name: MissionMouth Robot Toy
     scoreValue: 9
     description: "Now with sugar-\u2018cyanide\u2019 pills and super frothing action!"
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2653664293215461070, guid: 375f72be6f3b9ba418960cfd6dd1ef76, type: 3}
   - name: Videogame Dance Mat
     scoreValue: 7
     description: Doubles as a worship altar
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 1085092865771834916, guid: b01dd18b1300a8e43adacc256e829f20, type: 3}
   - name: 'Fidget Spinner '
     scoreValue: 9
     description: missing a wing. making it even more challenging!
@@ -555,15 +555,15 @@ MonoBehaviour:
   - name: bent participation trophy
     scoreValue: 9
     description: The label says "You did something!"
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3624517450380288838, guid: 6c9a7fea83c493e4a9eb93cf69ab0bc2, type: 3}
   - name: Weathered Conch Shell
     scoreValue: 10
     description: If you put your ear up to it, you can hear your blood rushing.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8378010532218975705, guid: 7732a4a888dfd41499ede1a2f302c6fb, type: 3}
   - name: RoboTeddy Animatronic
     scoreValue: 10
     description: It will put you to sleep. Forever. Maybe.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3915234492666598512, guid: 45535262d588dac469ea1a51b45fe0ff, type: 3}
   - name: Punk Rock Wig
     scoreValue: 9
     description: I pity the fool who doesn't like this wig.
@@ -571,48 +571,48 @@ MonoBehaviour:
   - name: Dollar Store Popsicle
     scoreValue: 7
     description: It's not melting. Why isn't it melting?
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 5614905708137281412, guid: 9c350b487fb25df41a2d84726329cbe5, type: 3}
   - name: Curly Synthetic Toupee
     scoreValue: 8
     description: Unnaturally curly. Feels... sentient. Might try to climb you.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 5729766647992445761, guid: 3f581371b0fcfeb4d82a1e055c5d03a8, type: 3}
   - name: Pet Sock
     scoreValue: 9
     description: "It\u2019s shaped like a creature. It has a name tag. You feel bad
       for touching it."
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3396599199453979934, guid: cc135f10f8d1d0c4ba610ad07c0bc2f0, type: 3}
   - name: Comeeko Ahem PC
     scoreValue: 8
     description: A doorstop in the shape of a fridge.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 6910137376616869218, guid: 036cb0251e11a224f901d33a8d5b64b3, type: 3}
   - name: Half eaten Cheese Wheel
     scoreValue: 9
     description: I think you can make a healing potion with it.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3177766856037592637, guid: 2e4c31dbc8ed8d04a9611881c36d2e1a, type: 3}
   - name: Ancient Kids Chemistry Set
     scoreValue: 9
     description: Wait..is this real uranium?
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 1218931056719066545, guid: 6ab9b3fdcdb88824db6e50f537c8322b, type: 3}
   - name: Creepy Talking Board
     scoreValue: 9
     description: It says WEEGIE!
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 7694125711075051602, guid: 5c0c42c6a682cab438d66a6a11ebd0f7, type: 3}
   - name: Knockoff Cartoon DVD case
     scoreValue: 10
     description: Still better than modern Dizmal movies.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 3561750417780501201, guid: 8c0a0824df897074ba591acbb7a93806, type: 3}
   - name: Mummified Cereal Box Toy
     scoreValue: 10
     description: a little bit of plastic, a lot of joy.
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 6088140057836085811, guid: dae03ab80b63a0547b8ab856d7113cb9, type: 3}
   - name: Smug Orange Cat Phone
     scoreValue: 10
     description: Smells faintly of lasagna
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 8890133887160074303, guid: 08c4bc12c450d2d4881cb636bd8839bf, type: 3}
   - name: Full Roll of Bubble Wrap
     scoreValue: 10
     description: all of them popped. DISAPPOINTMENT!
-    junkItem: {fileID: 0}
+    junkItem: {fileID: 2841544789440293321, guid: 6adaeefeda52f364f9ba3052a5f57231, type: 3}
   Lid_Closed: {fileID: 6655058519728580112}
   Lid_Open: {fileID: 8594022386999618999}
 --- !u!1 &6655058519728580112
