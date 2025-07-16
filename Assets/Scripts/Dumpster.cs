@@ -31,11 +31,26 @@ public class Dumpster : MonoBehaviour
     }
 
 
-    public JunkItem GetRandomJunk()
+    public JunkItem GetRandomJunk(int currentLevel)
     {
-        int index = UnityEngine.Random.Range(0, level1Junk.Count);
-        return level1Junk[index];
+        List<JunkItem> validJunk = new List<JunkItem>();
+
+        if (currentLevel >= 1) validJunk.AddRange(level1Junk);
+        if (currentLevel >= 3) validJunk.AddRange(Level2Junk);
+        if (currentLevel >= 6) validJunk.AddRange(Level3Junk);
+        if (currentLevel >= 9) validJunk.AddRange(Level4Junk);
+        if (currentLevel >= 11) validJunk.AddRange(Level5Junk);
+
+        if (validJunk.Count == 0)
+        {
+            Debug.LogWarning("No junk items found for this level!");
+            return null;
+        }
+
+        int index = UnityEngine.Random.Range(0, validJunk.Count);
+        return validJunk[index];
     }
+
 
     public void OpenLid()
     {

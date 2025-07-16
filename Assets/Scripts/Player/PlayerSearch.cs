@@ -64,7 +64,7 @@ public class PlayerSearch : MonoBehaviour
         float spawnChance = Random.value;
         if (spawnChance < 0.8f)
         {
-            var junk = currentDumpster.GetRandomJunk();
+            var junk = currentDumpster.GetRandomJunk(level);
             var go = Instantiate(junk.junkItem, currentDumpsterLocation.position + Vector3.up, Quaternion.identity);
             var rb = go.GetComponent<Rigidbody2D>();
             if (rb) rb.AddForce(new Vector2(Random.Range(-3f, 3f), 5f), ForceMode2D.Impulse);
