@@ -125,7 +125,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9c6da8db9577d3e4faf882f2869e23bb
-      internalID: 914727391
+      internalID: 5786407320727145278
       vertices: []
       indices: 
       edges: []
@@ -146,7 +146,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2e27c8c536826694a842fe13b946ebba
-      internalID: -1761546216
+      internalID: -5530317882183767892
       vertices: []
       indices: 
       edges: []
@@ -167,7 +167,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1978997c4e7cfb54ebbb353b4b74c7f6
-      internalID: -1008754389
+      internalID: -2698273708726929409
       vertices: []
       indices: 
       edges: []
@@ -188,7 +188,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cbda6d28cc36a9847801e3d6ae322553
-      internalID: 1479496049
+      internalID: 5284038323343318749
       vertices: []
       indices: 
       edges: []
@@ -209,7 +209,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8bfeb4bd14e91814eaffc634fe11870c
-      internalID: -1856369408
+      internalID: 2497030056168468790
       vertices: []
       indices: 
       edges: []
@@ -230,7 +230,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 68374dc375f877341b18972030f3b6da
-      internalID: 274308711
+      internalID: -1729704841997540882
       vertices: []
       indices: 
       edges: []
@@ -251,7 +251,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7cd104249b624be4bb21feb7e4590d8f
-      internalID: -1643574333
+      internalID: 2296672259984527682
       vertices: []
       indices: 
       edges: []
@@ -260,9 +260,9 @@ TextureImporter:
       name: devbible
       rect:
         serializedVersion: 2
-        x: 183
+        x: 179
         y: 141
-        width: 73
+        width: 77
         height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -272,7 +272,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 25af95fe334026942ba20203b17bcb56
-      internalID: 1829971600
+      internalID: -2012936690332869891
       vertices: []
       indices: 
       edges: []
@@ -293,7 +293,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 218dc212246747442b1a848d59310022
-      internalID: -797008281
+      internalID: -4690933095813066719
       vertices: []
       indices: 
       edges: []
@@ -314,7 +314,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e28424554ad78fa43b6135927865fb5f
-      internalID: 1185471394
+      internalID: 1611158897648432804
       vertices: []
       indices: 
       edges: []
@@ -335,7 +335,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c781096b63c11ba44afa8374dcfdd993
-      internalID: -222490285
+      internalID: 5068489391453246956
       vertices: []
       indices: 
       edges: []
@@ -356,19 +356,40 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 398de6b8468f74a469c19c50432740db
-      internalID: 1319642713
+      internalID: 591619171881369369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: freehugs
+      name: 
       rect:
         serializedVersion: 2
-        x: 132
-        y: 9
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e97eb03825dee720800000000000000
+      internalID: 2877471580529523173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hugs sign
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 10
         width: 111
-        height: 73
+        height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,29 +397,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45d8433b2f2a3aa4781387fd8a8209ca
-      internalID: -1822626739
+      spriteID: 5c02d3f2e4a14104389f7fb95270aaa2
+      internalID: -207086427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lollipop
+      name: lollipop
       rect:
         serializedVersion: 2
         x: 5
         y: 201
-        width: 32
-        height: 52
+        width: 30
+        height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9cf637c72f671e429a8727773c3b379
-      internalID: -1272534731
+      spriteID: eac18ced4ca7a014ab76b6b39a851af3
+      internalID: 1745618361
       vertices: []
       indices: 
       edges: []
@@ -406,7 +427,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 25ed8ebc800b9a548aa231e8a8e66b44
     internalID: 0
     vertices: []
     indices: 
@@ -414,21 +435,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BusinessCard: 914727391
-      Cartridge: -1761546216
-      Lollipop: -1272534731
-      bananapeel: -222490285
-      can: 274308711
-      crayon: -1856369408
-      devbible: 1829971600
-      flipflop: -1643574333
-      fork: -1008754389
-      freehugs: -1822626739
-      juicebox: -797008281
-      junk1_1: -1761126093
-      receipt: 1479496049
-      roll: 1185471394
-      sock: 1319642713
+      : 2877471580529523173
+      BusinessCard: 5786407320727145278
+      Cartridge: -5530317882183767892
+      bananapeel: 5068489391453246956
+      can: -1729704841997540882
+      crayon: 2497030056168468790
+      devbible: -2012936690332869891
+      flipflop: 2296672259984527682
+      fork: -2698273708726929409
+      hugs sign: -207086427
+      juicebox: -4690933095813066719
+      lollipop: 1745618361
+      receipt: 5284038323343318749
+      roll: 1611158897648432804
+      sock: 591619171881369369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

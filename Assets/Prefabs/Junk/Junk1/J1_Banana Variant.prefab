@@ -122,23 +122,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.52
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.52
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.52
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3972526
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.6926222
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalPosition.z
@@ -150,15 +150,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -178,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2497756943206626573, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_Name
-      value: Junk_Banana Variant
+      value: J1_Banana Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7136557597950960978, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_Size.x
@@ -197,9 +197,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8236975980631305877, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236975980631305877, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
+      propertyPath: m_Size.y
+      value: 1.65625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236975980631305877, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -222490285, guid: 963cf30e79d227b40bcddd1a1abebdd6, type: 3}
+      objectReference: {fileID: 5068489391453246956, guid: 963cf30e79d227b40bcddd1a1abebdd6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -70,23 +70,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.58
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.58
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.58
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.373036
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.4247599
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928648288745150277, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_LocalPosition.z
@@ -126,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2497756943206626573, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_Name
-      value: J1Cartridge Variant
+      value: J1_Cartridge Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7136557597950960978, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_Size.x
@@ -145,9 +145,17 @@ PrefabInstance:
       value: 0.021834671
       objectReference: {fileID: 0}
     - target: {fileID: 8236975980631305877, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236975980631305877, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236975980631305877, guid: 5326e5398fbef2c49ad02659ecb50a05, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1761546216, guid: 963cf30e79d227b40bcddd1a1abebdd6, type: 3}
+      objectReference: {fileID: -5530317882183767892, guid: 963cf30e79d227b40bcddd1a1abebdd6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
