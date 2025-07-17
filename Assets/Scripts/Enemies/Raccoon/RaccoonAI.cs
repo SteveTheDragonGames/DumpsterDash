@@ -39,6 +39,7 @@ public class RaccoonAI : MonoBehaviour
     public float stunRecoveryBonus = 0;
 
 
+
     //Raccoon health
     [SerializeField] private int maxHealth = 10;
     private int currentHealth;

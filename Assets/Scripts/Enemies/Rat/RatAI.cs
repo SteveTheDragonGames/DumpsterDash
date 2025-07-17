@@ -16,6 +16,7 @@ public class RatAI : MonoBehaviour, IHittable
     private Vector2 moveDirection;
 
     private bool canMove = true;
+    private int playerDamage = 5;
 
     [SerializeField] private float knockbackForce = 8f;
     [SerializeField] private float torqueForce = 30f;
@@ -111,7 +112,15 @@ void OnDrawGizmosSelected()
                 // Knock player back
                 Vector2 knockback = (collision.transform.position - transform.position).normalized;
                 coyoteRb.AddForce(knockback * 5f, ForceMode2D.Impulse);
-                collision.gameObject.GetComponent<PlayerActions>().Hit();
+                if (collision.gameObject.TryGetComponent(out CoyoteHealthUI health))
+                {
+                    health.TakeDamage(playerDamage);
+                }
+
+                if (collision.gameObject.TryGetComponent(out PlayerActions actions))
+                {
+                    actions.Hit();
+                }
                 Debug.Log("Rat bit back!");
                 FlipDirection();
             }
