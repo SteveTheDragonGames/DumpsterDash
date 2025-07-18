@@ -34,12 +34,12 @@ public class RaccoonEntrance : MonoBehaviour
         if (playerPosition.x < spawnPosition.x)
         {
             //player is to the right, face Right.   
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
             //player is to the left, face Left.    
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 

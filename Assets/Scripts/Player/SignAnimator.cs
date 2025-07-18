@@ -131,6 +131,7 @@ public class SignAnimator : MonoBehaviour
             signTransform.position = Vector3.Lerp(from, to, eased);
             yield return null;
         }
+        signTransform.position = to;
     }
 
     IEnumerator AnimateScale(Vector3 from, Vector3 to, float duration)

@@ -26,8 +26,10 @@ public class CoyoteHealthUI : MonoBehaviour
 
     void Update()
     {
+        /* Feeling less healthy, might delete later.
         if (Input.GetKeyDown(KeyCode.H))
             TakeDamage(10);
+        */
     }
 
     public void TakeDamage(int amount)

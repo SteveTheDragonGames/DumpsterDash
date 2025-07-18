@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
-public class RaccoonAI : MonoBehaviour
+public class RaccoonAI : MonoBehaviour, IHittable
 {
 
     public enum RaccoonState
@@ -58,9 +58,10 @@ public class RaccoonAI : MonoBehaviour
     const string RETREATING_ANIMATION = "isRetreating";
     const string ATTACK_ANIMATION = "ATTACK";
     const string STUNNED_ANIMATION = "STUNNED";
-    const string DEATH_ANIMATION = "DEATH";
     const string HIT_ANIMATION = "isHit";
     const string WINDUP_ANIMATION = "isWindingUp";
+    const string DEATH_ANIMATION = "isDead";
+    const string FLINCH_ANIMATION = "HitTrigger";
 
     //Raccoon attack flash
     private IEnumerator FlashColor(Color color, float flashTime, int flashes = 1)
@@ -119,7 +120,7 @@ public class RaccoonAI : MonoBehaviour
 
     void Update()
     {
-        if (isStunned) return;
+        if (isStunned || isDead) return;
 
         switch (currentState)
         {
@@ -260,7 +261,7 @@ public class RaccoonAI : MonoBehaviour
             isStunned = true;
             currentState = RaccoonState.Stunned;
             rb.velocity = Vector2.zero;
-            anim.Play(HIT_ANIMATION);
+            anim.SetTrigger(FLINCH_ANIMATION);
             StartCoroutine(StunDuration(duration));
         }
     }
@@ -280,12 +281,13 @@ public class RaccoonAI : MonoBehaviour
 
 
     void HandleStunned() { /* Empty, just managed by coroutine */ }
-   
+
     public void TakeHit(int damage)
     {
         if (isDead || isStunned) return;
 
         currentHealth -= damage;
+        currentHealth = Mathf.Max(0, currentHealth); // prevent negative HP
         UnityEngine.Debug.Log($"Raccoon took {damage} damage. Remaining: {currentHealth}");
 
         if (currentHealth <= 0)
@@ -294,12 +296,32 @@ public class RaccoonAI : MonoBehaviour
         }
         else
         {
-            Stun(flinchTime); // ← Call main stun function with flinch duration
+            Stun(flinchTime);
         }
     }
 
 
- 
+    public void TakeHit(HitType hitType, Vector2 hitDirection)
+    {
+        if (isDead || isStunned) return;
+
+        switch (hitType)
+        {
+            case HitType.Boot:
+                TakeHit(3); // this is your existing int-based logic
+                break;
+            case HitType.Spritz:
+                TakeHit(1);
+                break;
+        }
+    }
+
+
+
+
+
+
+
     void HandleBerserk()
     {
         // Optional wild logic — faster, more aggressive, maybe unpredictable movement
@@ -315,30 +337,37 @@ public class RaccoonAI : MonoBehaviour
 
     void HandleRetreat()
     {
-        // Move AWAY from the player instead of toward
         Vector2 direction = (transform.position - player.position).normalized;
-        rb.velocity = new Vector2(direction.x * moveSpeed, rb.velocity.y);
+        float retreatSpeedMultiplier = 1.5f;
+        rb.velocity = new Vector2(direction.x * moveSpeed * retreatSpeedMultiplier, rb.velocity.y);
 
-        // Flip the sprite to face the correct direction
+
         transform.localScale = new Vector3(
             direction.x > 0 ? 1f : -1f,
             1f, 1f
         );
 
-        // Set Animator flag
         if (!anim.GetBool(RETREATING_ANIMATION))
             anim.SetBool(RETREATING_ANIMATION, true);
 
         anim.SetBool(CHASING_ANIMATION, false);
         anim.SetBool(IDLE_ANIMATION, false);
+
+        // 💥 NEW: Destroy if far offscreen
+        if (Mathf.Abs(transform.position.x - player.position.x) > 12f)
+        {
+            UnityEngine.Debug.Log("Raccoon has retreated offscreen. Destroying.");
+            Destroy(gameObject);
+        }
     }
+
 
     void Die()
     {
         isDead = true;
         rb.velocity = Vector2.zero;
         anim.SetTrigger(DEATH_ANIMATION);//gotta make a death animation state.
-        GetComponent<BoxCollider2D>().enabled = false;
+        //GetComponent<BoxCollider2D>().enabled = false;
         //optionally destroy after time
         Destroy(gameObject, 3f);
     }
