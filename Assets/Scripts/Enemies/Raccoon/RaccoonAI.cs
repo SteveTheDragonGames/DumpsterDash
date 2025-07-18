@@ -258,6 +258,7 @@ public class RaccoonAI : MonoBehaviour, IHittable
     {
         if (!isStunned)
         {
+            ResetAnimationStates();
             isStunned = true;
             currentState = RaccoonState.Stunned;
             rb.velocity = Vector2.zero;
