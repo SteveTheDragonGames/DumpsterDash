@@ -1,29 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 
 using UnityEngine;
+using System.Collections;
 
 public class Spawner : MonoBehaviour
 
 {
-
     [SerializeField] private GameObject[] rats;
-    [SerializeField] private Transform leftPos, rightPos;
 
     private GameObject spawnedRat;
     private int randomIndex;
     private int randomSide;
+    private float border;
+
+    [SerializeField] private bool canSpawn = true;
 
 
     void Start()
     {
+        border = GameManager.Instance.maxBorderLimitX;
         StartCoroutine(SpawnRats());
     }
 
     IEnumerator SpawnRats()
     {
-        while (true)
+        while (canSpawn)
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(1, 6));
 
@@ -36,13 +36,14 @@ public class Spawner : MonoBehaviour
 
             if (randomSide == 0)
             {
-                spawnedRat.transform.position = leftPos.position;
+                spawnedRat.transform.position = new Vector3(-border, transform.position.y, transform.position.z);
                 ratScript.moveSpeed = -UnityEngine.Random.Range(3, 10);
             }
             else
             {
                 spawnedRat.transform.localScale = new Vector3(-1f, 1f, 1f);
-                spawnedRat.transform.position = rightPos.position;
+                spawnedRat.transform.position = new Vector3(border, transform.position.y, transform.position.z);
+
                 ratScript.moveSpeed = UnityEngine.Random.Range(3, 10);
             }
         }

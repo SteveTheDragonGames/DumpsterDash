@@ -8,18 +8,25 @@ public class PlayerInput : MonoBehaviour
     private PlayerSearch search;
     private PlayerActions actions;
 
+    public float maxXLimit = 56.0f;
+
+    
+
     void Awake()
     {
         states = GetComponent<PlayerStates>();
         movement = GetComponent<PlayerMovement>();
         search = GetComponent<PlayerSearch>();
         actions = GetComponent<PlayerActions>();
+
+
     }
 
     void Update()
     {
         // Movement input
         float horizontal = Input.GetAxisRaw("Horizontal");
+
         if (Mathf.Abs(horizontal) > 0.01f && states.CanMove())
         {
             movement.Move(horizontal);

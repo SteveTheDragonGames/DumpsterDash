@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
     //Make this accessible everywhere.
     public static GameManager Instance;
 
+    public float maxBorderLimitX = 56.0f;
+
     // Start is called before the first frame update
     void Awake()
     {

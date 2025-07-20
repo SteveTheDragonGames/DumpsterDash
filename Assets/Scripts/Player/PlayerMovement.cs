@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerStates))]
@@ -18,18 +19,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float fallMultiplier = 2.5f;
     public GameObject kickHitBox;
 
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         states = GetComponent<PlayerStates>();
         sr = GetComponent<SpriteRenderer>();
-    }
 
+    }
 
 
     void FixedUpdate()
     {
         CheckGround();
+        CheckBorder();
         CheckFall();
         FallBoost();
     }
@@ -44,6 +47,20 @@ public class PlayerMovement : MonoBehaviour
     (states.IsState(PlayerState.Jumping) || states.IsState(PlayerState.Falling)))
         {
             states.SetState(PlayerState.Idle);
+        }
+    }
+
+    private void CheckBorder()
+    {
+        float limit = GameManager.Instance.maxBorderLimitX;
+
+        if (transform.position.x <= -limit)
+        {
+            transform.position = new Vector3(-limit, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.x >= limit)
+        {
+            transform.position = new Vector3(limit, transform.position.y, transform.position.z);
         }
     }
 
