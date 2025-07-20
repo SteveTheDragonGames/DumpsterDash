@@ -11,13 +11,16 @@ public class Spawner : MonoBehaviour
     private int randomIndex;
     private int randomSide;
     private float border;
+ 
 
     [SerializeField] private bool canSpawn = true;
+
+    public float spawnBuffer = 5f;
 
 
     void Start()
     {
-        border = GameManager.Instance.maxBorderLimitX;
+        border = GameManager.Instance.maxBorderLimitX + spawnBuffer;
         StartCoroutine(SpawnRats());
     }
 

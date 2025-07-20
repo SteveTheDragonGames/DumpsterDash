@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public enum RatState { Roaming, Knocked, Dead }
@@ -57,6 +58,7 @@ public class RatAI : MonoBehaviour, IHittable
         if (canMove && ratState == RatState.Roaming)
         {
             transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+            CheckBorder();
         }
     }
 
@@ -68,6 +70,12 @@ void OnDrawGizmosSelected()
     Gizmos.DrawLine(transform.position, transform.position + (Vector3)moveDirection * 0.5f);
 }
 #endif
+
+    private void CheckBorder()
+    {
+        if (transform.position.x < GameManager.Instance.maxBorderLimitX && transform.position.x > -GameManager.Instance.maxBorderLimitX) return;
+        else TakeHit(HitType.Electric, Vector2.zero);
+    }
 
     public void ResetRat()
     {
@@ -189,10 +197,6 @@ void OnDrawGizmosSelected()
         else if (other.CompareTag("PlayerFeet")) // optional, for smoosh detection
         {
             TakeHit(HitType.Smoosh, Vector2.zero);
-        }
-        else if (other.CompareTag("ElectricZone")) // optional, for shocking tiles/devices
-        {
-            TakeHit(HitType.Electric, Vector2.zero);
         }
     }
 
