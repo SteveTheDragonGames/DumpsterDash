@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rats:
   - {fileID: 2834379808135999443, guid: 057127fb3f6a76741a6e71b8a987cf30, type: 3}
-  canSpawn: 1
+  canSpawn: 0
   spawnBuffer: -2
 --- !u!1 &1140246950
 GameObject:

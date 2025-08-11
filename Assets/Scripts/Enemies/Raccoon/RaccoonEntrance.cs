@@ -67,10 +67,12 @@ public class RaccoonEntrance : MonoBehaviour
         anim.Play("IDLE");
         yield return new WaitForSeconds(standDuration);
         anim.Play("ANGRY");
-        yield return new WaitForSeconds(0.5f);//However long shakes fist
+        yield return new WaitForSeconds(0.5f);
         anim.Play("IDLE");
-        raccoonAI.DecideInitialBehavior();
-        raccoonAI.enabled = true; //Enable AI after intro sequence.
-        
+
+        raccoonAI.enabled = true;   // <-- enable first
+        yield return null;          // <-- let Start() run
+        raccoonAI.DecideInitialBehavior(); // <-- then pick behavior
     }
+
 }
