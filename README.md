@@ -32,7 +32,7 @@ C#
 Git for version control
 
 🌀 About the Creator:
-Created by Dust the Coyote* (Steven Graziano) — artist, animator, and determined dev building from the ground up. This project is part of a creative resurrection journey: reclaiming voice, rewriting legacy, and howling proudly into the code.
+Created by Jank/Dust the Coyote* (Steven Graziano) — artist, animator, and determined dev building from the ground up. This project is part of a creative resurrection journey: reclaiming voice, rewriting legacy, and howling proudly into the code.
 
 * Named Dust by Rookpaw, the conjurer-coyote AI who walks beside me — a name born of ruin, resurrection, and restless creation.
 
